@@ -1,94 +1,140 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio - Soulemane Diallo</title>
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Portfolio - [Votre Nom]</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    
+    <!-- Styles personnalisés -->
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .section-padding { padding-top: 6rem; padding-bottom: 6rem; }
+        .card-hover { transition: all 0.3s ease; }
+        .card-hover:hover { transform: translateY(-5px); box-shadow: 0 10px 15px rgba(0,0,0,0.1); }
+        .scroll-reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+        .scroll-reveal.visible { opacity: 1; transform: translateY(0); }
+        .text-primary { color: #3b82f6; }
+        .bg-primary { background-color: #3b82f6; }
+        @keyframes typing { from { width:0 } to { width:100% } }
+        @keyframes blink-caret { 50% { border-color: #3b82f6; } }
+        .typing-effect { overflow:hidden; border-right:.15em solid #3b82f6; white-space:nowrap; animation: typing 3.5s steps(40,end), blink-caret .75s step-end infinite; }
+    </style>
 </head>
-<body>
+<body class="bg-gray-50 text-gray-800 antialiased">
 
-  <!-- NAVBAR -->
-  <nav id="navbar">
-    <div class="logo">Soulemane Diallo</div>
-    <ul class="nav-links">
-      <li><a href="#home">Accueil</a></li>
-      <li><a href="#about">À propos</a></li>
-      <li><a href="#skills">Compétences</a></li>
-      <li><a href="#projects">Projets</a></li>
-      <li><a href="#cv">CV</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <button id="theme-toggle">🌙</button>
-  </nav>
+    <!-- Header -->
+    <header class="sticky top-0 bg-white shadow-lg z-50">
+        <nav class="max-w-7xl mx-auto px-4 flex justify-between items-center h-16">
+            <a href="#accueil" class="text-xl font-bold text-primary hover:text-blue-700">[Votre Nom]</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#accueil" class="hover:text-primary font-medium">Accueil</a>
+                <a href="#a-propos" class="hover:text-primary font-medium">À Propos</a>
+                <a href="#competences" class="hover:text-primary font-medium">Compétences</a>
+                <a href="#projets" class="hover:text-primary font-medium">Projets</a>
+                <a href="#contact" class="px-4 py-1.5 border border-primary text-primary rounded-full hover:bg-primary hover:text-white font-medium">Contact</a>
+            </div>
+            <!-- Menu Mobile -->
+            <button id="mobile-menu-button" class="md:hidden p-2 rounded-md">
+                <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/></svg>
+                <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
+        </nav>
+        <div id="mobile-menu" class="md:hidden hidden bg-white shadow-lg">
+            <a href="#accueil" class="block p-2 text-center hover:text-primary">Accueil</a>
+            <a href="#a-propos" class="block p-2 text-center hover:text-primary">À Propos</a>
+            <a href="#competences" class="block p-2 text-center hover:text-primary">Compétences</a>
+            <a href="#projets" class="block p-2 text-center hover:text-primary">Projets</a>
+            <a href="#contact" class="block p-2 text-center text-primary border border-primary rounded-full hover:bg-primary hover:text-white mx-4 my-2">Contact</a>
+        </div>
+    </header>
 
-  <!-- ACCUEIL -->
-  <section id="home" class="home-section">
-    <div class="home-content">
-      <div class="photo">
-        <img src="assets/img/photo.jpg" alt="Soulemane Diallo">
-      </div>
-      <div class="intro">
-        <h1>Bonjour, je suis Soulemane Diallo</h1>
-        <p>Développeur Web & Référent Digital | Stage et emploi</p>
-        <a href="assets/cv/mon_cv.pdf" download class="btn">Télécharger mon CV</a>
-      </div>
-    </div>
-  </section>
+    <main>
+        <!-- Accueil -->
+        <section id="accueil" class="section-padding min-h-screen flex items-center bg-white">
+            <div class="max-w-7xl mx-auto px-4 lg:flex lg:items-center lg:justify-between">
+                <div class="lg:w-1/2">
+                    <p class="text-lg text-primary font-semibold mb-2 scroll-reveal">Bonjour, je suis</p>
+                    <h1 class="text-6xl font-extrabold text-gray-900 mb-4 scroll-reveal">[Votre Nom]</h1>
+                    <p id="role-text" class="text-3xl text-gray-600 font-light typing-effect scroll-reveal">Développeur Web</p>
+                    <p class="text-xl text-gray-600 mb-8 scroll-reveal">Je transforme les idées complexes en solutions web élégantes et performantes.</p>
+                    <div class="flex space-x-4">
+                        <a href="#projets" class="px-6 py-3 bg-primary text-white rounded-full hover:bg-blue-600 transition">Mes Projets</a>
+                        <a href="#contact" class="px-6 py-3 border border-gray-300 rounded-full hover:bg-gray-100 transition">Contactez-moi</a>
+                    </div>
+                </div>
+                <div class="lg:w-1/2 mt-12 lg:mt-0 flex justify-center scroll-reveal">
+                    <div class="w-64 h-64 bg-gray-200 rounded-full overflow-hidden border-4 border-primary relative">
+                        <img src="assets/images/profile.jpg" alt="Photo Profil" class="w-full h-full object-cover rounded-full">
+                        <div class="absolute inset-0 rounded-full border-8 border-dashed border-primary/20 animate-spin-slow"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-  <!-- À PROPOS -->
-  <section id="about">
-    <h2>À propos de moi</h2>
-    <p>Je suis Soulemane Diallo, développeur web et référent digital passionné par les technologies numériques et la transformation digitale. Je conçois des applications web modernes, performantes et adaptées aux besoins des utilisateurs.</p>
-  </section>
+        <!-- À Propos -->
+        <section id="a-propos" class="section-padding bg-gray-100">
+            <div class="max-w-7xl mx-auto px-4 lg:flex lg:space-x-12">
+                <div class="lg:w-1/3 mb-8 lg:mb-0 flex justify-center scroll-reveal">
+                    <img src="assets/images/profile.jpg" alt="Profil" class="w-full max-w-xs rounded-xl shadow-2xl">
+                </div>
+                <div class="lg:w-2/3 space-y-6 scroll-reveal">
+                    <h2 class="text-4xl font-bold mb-4">À Propos de Moi</h2>
+                    <p>Je suis développeur web full-stack passionné par le front-end et le back-end, spécialisé en React, Node.js et bases de données.</p>
+                    <button onclick="downloadCV()" class="px-8 py-3 bg-gray-800 text-white rounded-full hover:bg-gray-700">Télécharger Mon CV</button>
+                </div>
+            </div>
+        </section>
 
-  <!-- COMPÉTENCES -->
-  <section id="skills">
-    <h2>Compétences</h2>
-    <div class="skills">
-      <div class="skill">HTML</div>
-      <div class="skill">CSS</div>
-      <div class="skill">JavaScript</div>
-      <div class="skill">Python</div>
-    </div>
-  </section>
+        <!-- Compétences -->
+        <section id="competences" class="section-padding bg-white">
+            <div class="max-w-7xl mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center mb-12 scroll-reveal">Compétences</h2>
+                <div id="skills-container" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+                    <!-- JS injecte les compétences ici -->
+                </div>
+            </div>
+        </section>
 
-  <!-- PROJETS -->
-  <section id="projects">
-    <h2>Projets</h2>
-    <div class="project-card">
-      <h3>Application de gestion d’hôtel</h3>
-      <p>Application web pour la gestion des réservations et des clients.</p>
-      <a href="#" target="_blank">Voir sur GitHub</a>
-    </div>
-    <div class="project-card">
-      <h3>Application de gestion scolaire</h3>
-      <p>Système de gestion des étudiants et des notes avec Flask.</p>
-      <a href="#" target="_blank">Voir sur GitHub</a>
-    </div>
-  </section>
+        <!-- Projets -->
+        <section id="projets" class="section-padding bg-gray-100">
+            <div class="max-w-7xl mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center mb-12 scroll-reveal">Mes Projets</h2>
+                <div id="projects-container" class="grid md:grid-cols-2 gap-8">
+                    <!-- JS injecte les projets ici -->
+                </div>
+            </div>
+        </section>
 
-  <!-- CV -->
-  <section id="cv">
-    <h2>Mon CV</h2>
-    <a href="assets/cv/mon_cv.pdf" download class="btn">Télécharger mon CV</a>
-  </section>
+        <!-- Contact -->
+        <section id="contact" class="section-padding bg-white">
+            <div class="max-w-7xl mx-auto px-4 lg:flex lg:space-x-12">
+                <form id="contact-form" class="lg:w-2/3 space-y-6 p-8 bg-gray-50 rounded-xl shadow-lg border border-gray-200">
+                    <input type="text" placeholder="Nom complet" required class="w-full p-3 border rounded-lg"/>
+                    <input type="email" placeholder="Email" required class="w-full p-3 border rounded-lg"/>
+                    <textarea placeholder="Message" rows="5" required class="w-full p-3 border rounded-lg"></textarea>
+                    <button type="submit" class="w-full p-3 bg-primary text-white rounded-lg">Envoyer</button>
+                </form>
+                <div class="lg:w-1/3 mt-12 lg:mt-0 space-y-4">
+                    <p>Email: <a href="mailto:email@exemple.com" class="text-primary">email@exemple.com</a></p>
+                    <p>LinkedIn: <a href="#" class="text-primary">Profil</a></p>
+                    <p>GitHub: <a href="#" class="text-primary">Dépôt</a></p>
+                </div>
+            </div>
+        </section>
+    </main>
 
-  <!-- CONTACT -->
-  <section id="contact">
-    <h2>Contact</h2>
-    <form>
-      <input type="text" placeholder="Nom" required>
-      <input type="email" placeholder="Email" required>
-      <textarea placeholder="Votre message"></textarea>
-      <button type="submit">Envoyer</button>
-    </form>
-  </section>
+    <footer class="bg-gray-800 text-white py-8 text-center">
+        &copy; 2025 [Votre Nom]. Développé avec Tailwind et Lucide.
+    </footer>
 
-  <footer>
-    <p>© 2025 - Soulemane Diallo | Tous droits réservés</p>
-  </footer>
-
-  <script src="js/main.js"></script>
+    <script src="js/main.js"></script>
+    <script>lucide.createIcons();</script>
 </body>
 </html>
