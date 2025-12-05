@@ -1,51 +1,97 @@
-/* CSS global */
+/* RESET & GLOBAL */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
   background-color: #f5f5f5;
   color: #333;
+  transition: background-color 0.3s, color 0.3s;
 }
 
-/* HEADER */
-header {
-  background-color: #111;
-  color: white;
-  text-align: center;
-  padding: 50px 20px;
-}
-
-header h1 {
-  margin: 0;
-  font-size: 2.5em;
-}
-
-header p {
-  margin: 5px 0;
+a {
+  text-decoration: none;
+  color: #00aaff;
 }
 
 .btn {
   display: inline-block;
-  margin-top: 15px;
   padding: 10px 20px;
   background-color: #00aaff;
   color: white;
-  text-decoration: none;
   border-radius: 5px;
+}
+
+/* NAVBAR */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #111;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  z-index: 1000;
+}
+
+nav .nav-links {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+}
+
+nav .nav-links li a {
+  color: white;
+  transition: 0.3s;
+}
+
+nav .nav-links li a:hover {
+  color: #00aaff;
+}
+
+#theme-toggle {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* HOME */
+.home-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding-top: 60px;
+  gap: 20px;
+}
+
+.home-section .photo img {
+  width: 200px;
+  border-radius: 50%;
+  border: 4px solid #00aaff;
+}
+
+.home-section .intro h1 {
+  font-size: 2em;
+}
+
+.home-section .intro p {
+  font-size: 1.2em;
 }
 
 /* SECTIONS */
 section {
-  padding: 50px 20px;
+  padding: 80px 20px;
   text-align: center;
 }
 
-/* Compétences */
 .skills {
   display: flex;
   justify-content: center;
   gap: 20px;
   flex-wrap: wrap;
-  margin-top: 20px;
 }
 
 .skill {
@@ -54,9 +100,13 @@ section {
   padding: 10px 15px;
   border-radius: 5px;
   font-weight: bold;
+  transition: transform 0.3s;
 }
 
-/* Projets */
+.skill:hover {
+  transform: scale(1.2);
+}
+
 .project-card {
   background-color: white;
   padding: 20px;
@@ -64,28 +114,36 @@ section {
   max-width: 400px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
 }
 
-/* Contact */
-form input, form textarea {
-  width: 80%;
-  padding: 10px;
-  margin: 10px 0;
+.project-card:hover {
+  transform: translateY(-5px);
 }
 
-form button {
-  padding: 10px 20px;
-  background-color: #00aaff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-/* Footer */
+/* FOOTER */
 footer {
   background-color: #111;
   color: white;
   text-align: center;
   padding: 15px;
+}
+
+/* MODE SOMBRE */
+body.dark-mode {
+  background-color: #121212;
+  color: #f5f5f5;
+}
+
+body.dark-mode .skill {
+  background-color: #00ccff;
+}
+
+body.dark-mode .project-card {
+  background-color: #1e1e1e;
+  box-shadow: 0 0 10px rgba(255,255,255,0.1);
+}
+
+body.dark-mode nav {
+  background-color: #222;
 }

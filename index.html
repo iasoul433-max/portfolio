@@ -2,31 +2,44 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio - Soulemane Diallo</title>
   <link rel="stylesheet" href="css/style.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 
-  <!-- HEADER -->
-  <header>
-    <h1>Soulemane Diallo</h1>
-    <p>Développeur Web & Référent Digital</p>
-    <p>À la recherche d’un stage ou d’un emploi</p>
-    <a href="assets/cv/mon_cv.pdf" download class="btn">Télécharger mon CV</a>
-  </header>
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <div class="logo">Soulemane Diallo</div>
+    <ul class="nav-links">
+      <li><a href="#home">Accueil</a></li>
+      <li><a href="#about">À propos</a></li>
+      <li><a href="#skills">Compétences</a></li>
+      <li><a href="#projects">Projets</a></li>
+      <li><a href="#cv">CV</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button id="theme-toggle">🌙</button>
+  </nav>
 
-  <!-- A PROPOS -->
+  <!-- ACCUEIL -->
+  <section id="home" class="home-section">
+    <div class="home-content">
+      <div class="photo">
+        <img src="assets/img/photo.jpg" alt="Soulemane Diallo">
+      </div>
+      <div class="intro">
+        <h1>Bonjour, je suis Soulemane Diallo</h1>
+        <p>Développeur Web & Référent Digital | Stage et emploi</p>
+        <a href="assets/cv/mon_cv.pdf" download class="btn">Télécharger mon CV</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- À PROPOS -->
   <section id="about">
     <h2>À propos de moi</h2>
-    <p>
-      Je suis Soulemane Diallo, développeur web et référent digital passionné par les technologies numériques
-      et la transformation digitale. Je conçois des applications web modernes, performantes et adaptées aux besoins des utilisateurs.
-    </p>
-    <p>
-      Je suis actuellement à la recherche d’un stage ou d’un emploi afin de mettre mes compétences en pratique,
-      continuer à apprendre et contribuer activement à des projets professionnels.
-    </p>
+    <p>Je suis Soulemane Diallo, développeur web et référent digital passionné par les technologies numériques et la transformation digitale. Je conçois des applications web modernes, performantes et adaptées aux besoins des utilisateurs.</p>
   </section>
 
   <!-- COMPÉTENCES -->
@@ -43,19 +56,22 @@
   <!-- PROJETS -->
   <section id="projects">
     <h2>Projets</h2>
-
     <div class="project-card">
       <h3>Application de gestion d’hôtel</h3>
       <p>Application web pour la gestion des réservations et des clients.</p>
       <a href="#" target="_blank">Voir sur GitHub</a>
     </div>
-
     <div class="project-card">
       <h3>Application de gestion scolaire</h3>
       <p>Système de gestion des étudiants et des notes avec Flask.</p>
       <a href="#" target="_blank">Voir sur GitHub</a>
     </div>
+  </section>
 
+  <!-- CV -->
+  <section id="cv">
+    <h2>Mon CV</h2>
+    <a href="assets/cv/mon_cv.pdf" download class="btn">Télécharger mon CV</a>
   </section>
 
   <!-- CONTACT -->
@@ -69,7 +85,6 @@
     </form>
   </section>
 
-  <!-- FOOTER -->
   <footer>
     <p>© 2025 - Soulemane Diallo | Tous droits réservés</p>
   </footer>
