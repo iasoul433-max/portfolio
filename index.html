@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon Portfolio - [Votre Nom]</title>
+    <title>Mon Portfolio - Soulemane Diallo</title>
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -32,13 +32,19 @@
     <!-- Header -->
     <header class="sticky top-0 bg-white shadow-lg z-50">
         <nav class="max-w-7xl mx-auto px-4 flex justify-between items-center h-16">
-            <a href="#accueil" class="text-xl font-bold text-primary hover:text-blue-700">[Votre Nom]</a>
-            <div class="hidden md:flex space-x-8">
-                <a href="#accueil" class="hover:text-primary font-medium">Accueil</a>
-                <a href="#a-propos" class="hover:text-primary font-medium">À Propos</a>
-                <a href="#competences" class="hover:text-primary font-medium">Compétences</a>
-                <a href="#projets" class="hover:text-primary font-medium">Projets</a>
-                <a href="#contact" class="px-4 py-1.5 border border-primary text-primary rounded-full hover:bg-primary hover:text-white font-medium">Contact</a>
+            <a href="#accueil" class="flex items-center gap-2">
+    <img src="assets/images/Neon_Developer_Logo_with_Hot_Pink_Accent" alt="Logo Soulemane Diallo" class="h-9 w-auto">
+</a>            <div class="hidden md:flex space-x-8">
+                <a href="#accueil" class="hover:text-blue-600 transition-colors duration-300">Accueil</a>
+                <a href="#a-propos" class="hover:text-blue-600 transition-colors duration-300">À Propos</a>
+                <a href="#competences" class="hover:text-blue-600 transition-colors duration-300">Compétences</a>
+                <a href="#projets" class="hover:text-blue-600 transition-colors duration-300">Projets</a>
+                <a href="#cv" class="hover:text-blue-600 transition-colors duration-300">CV</a>
+                <a href="#contact"
+   class="px-4 py-1.5 border border-white text-white rounded-full
+          hover:bg-green-400 hover:text-blue-600 transition-all duration-300 font-medium">
+   Contact
+</a>
             </div>
             <!-- Menu Mobile -->
             <button id="mobile-menu-button" class="md:hidden p-2 rounded-md">
@@ -47,10 +53,11 @@
             </button>
         </nav>
         <div id="mobile-menu" class="md:hidden hidden bg-white shadow-lg">
-            <a href="#accueil" class="block p-2 text-center hover:text-primary">Accueil</a>
-            <a href="#a-propos" class="block p-2 text-center hover:text-primary">À Propos</a>
-            <a href="#competences" class="block p-2 text-center hover:text-primary">Compétences</a>
-            <a href="#projets" class="block p-2 text-center hover:text-primary">Projets</a>
+            <a href="#accueil" class="block p-2 text-center hover:text-blue-600 transition-colors duration-300">Accueil</a>
+            <a href="#a-propos" class="block p-2 text-center hover:text-blue-600 transition-colors duration-300">À Propos</a>
+            <a href="#competences" class="block p-2 text-center hover:text-blue-600 transition-colors duration-300">Compétences</a>
+            <a href="#projets" class="block p-2 text-center hover:text-blue-600 transition-colors duration-300">Projets</a>
+            <a href="#cv" class="block p-2 text-center hover:text-blue-600 transition-colors duration-300">CV</a>
             <a href="#contact" class="block p-2 text-center text-primary border border-primary rounded-full hover:bg-primary hover:text-white mx-4 my-2">Contact</a>
         </div>
     </header>
@@ -61,7 +68,7 @@
             <div class="max-w-7xl mx-auto px-4 lg:flex lg:items-center lg:justify-between">
                 <div class="lg:w-1/2">
                     <p class="text-lg text-primary font-semibold mb-2 scroll-reveal">Bonjour, je suis</p>
-                    <h1 class="text-6xl font-extrabold text-gray-900 mb-4 scroll-reveal">[Votre Nom]</h1>
+                    <h1 class="text-6xl font-extrabold text-gray-900 mb-4 scroll-reveal">Soulemane Diallo</h1>
                     <p id="role-text" class="text-3xl text-gray-600 font-light typing-effect scroll-reveal">Développeur Web</p>
                     <p class="text-xl text-gray-600 mb-8 scroll-reveal">Je transforme les idées complexes en solutions web élégantes et performantes.</p>
                     <div class="flex space-x-4">
@@ -131,8 +138,11 @@
     </main>
 
     <footer class="bg-gray-800 text-white py-8 text-center">
-        &copy; 2025 [Votre Nom]. Développé avec Tailwind et Lucide.
-    </footer>
+    <img src="assets/images/logo.png" alt="Logo Soulemane Diallo" class="h-8 mx-auto mb-3">
+    <p>&copy; 2025 Soulemane Diallo. Tous droits réservés.</p>
+    <p class="text-sm text-gray-400 mt-1">Développeur Web & Référent Digital</p>
+</footer>
+
 
     <script src="js/main.js"></script>
     <script>lucide.createIcons();</script>
