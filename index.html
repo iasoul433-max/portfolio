@@ -1,146 +1,76 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon Portfolio - Soulemane Diallo</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Soulemane Diallo | Portfolio</title>
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <!-- Google Fonts Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-    
-    <!-- Styles personnalisés -->
-    <style>
-        body { font-family: 'Inter', sans-serif; }
-        .section-padding { padding-top: 6rem; padding-bottom: 6rem; }
-        .card-hover { transition: all 0.3s ease; }
-        .card-hover:hover { transform: translateY(-5px); box-shadow: 0 10px 15px rgba(0,0,0,0.1); }
-        .scroll-reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
-        .scroll-reveal.visible { opacity: 1; transform: translateY(0); }
-        .text-primary { color: #3b82f6; }
-        .bg-primary { background-color: #3b82f6; }
-        @keyframes typing { from { width:0 } to { width:100% } }
-        @keyframes blink-caret { 50% { border-color: #3b82f6; } }
-        .typing-effect { overflow:hidden; border-right:.15em solid #3b82f6; white-space:nowrap; animation: typing 3.5s steps(40,end), blink-caret .75s step-end infinite; }
-    </style>
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+  </style>
 </head>
-<body class="bg-gray-50 text-gray-800 antialiased">
 
-    <!-- Header -->
-    <header class="sticky top-0 bg-white shadow-lg z-50">
-        <nav class="max-w-7xl mx-auto px-4 flex justify-between items-center h-16">
-            <a href="#accueil" class="flex items-center gap-2">
-    <img src="/portfolio/assets/images/logo.svg" alt="Logo Soulemane Diallo">
-</a>            <div class="hidden md:flex space-x-8">
-                <a href="#accueil" class="hover:text-blue-600 transition-colors duration-300">Accueil</a>
-                <a href="#a-propos" class="hover:text-blue-600 transition-colors duration-300">À Propos</a>
-                <a href="#competences" class="hover:text-blue-600 transition-colors duration-300">Compétences</a>
-                <a href="#projets" class="hover:text-blue-600 transition-colors duration-300">Projets</a>
-                <a href="#cv" class="hover:text-blue-600 transition-colors duration-300">CV</a>
-                <a href="#contact" class="hover:text-blue-600 transition-colors duration-300"> Contact</a>
-            </div>
-            <!-- Menu Mobile -->
-            <button id="mobile-menu-button" class="md:hidden p-2 rounded-md">
-                <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/></svg>
-                <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
-            </button>
-        </nav>
-        <div id="mobile-menu" class="md:hidden hidden bg-white shadow-lg">
-            <a href="#accueil" class="block p-2 text-center hover:text-blue-600 transition-colors duration-300">Accueil</a>
-            <a href="#a-propos" class="block p-2 text-center hover:text-blue-600 transition-colors duration-300">À Propos</a>
-            <a href="#competences" class="block p-2 text-center hover:text-blue-600 transition-colors duration-300">Compétences</a>
-            <a href="#projets" class="block p-2 text-center hover:text-blue-600 transition-colors duration-300">Projets</a>
-            <a href="#cv" class="block p-2 text-center hover:text-blue-600 transition-colors duration-300">CV</a>
-            <a href="#contact" class="block p-2 text-center text-primary border border-primary rounded-full hover:bg-primary hover:text-white mx-4 my-2">Contact</a>
-        </div>
-    </header>
+<body class="bg-gray-50 text-gray-800">
 
-    <main>
-        <!-- Accueil -->
-        <section id="accueil" class="section-padding min-h-screen flex items-center bg-white">
-            <div class="max-w-7xl mx-auto px-4 lg:flex lg:items-center lg:justify-between">
-                <div class="lg:w-1/2">
-                    <p class="text-lg text-primary font-semibold mb-2 scroll-reveal">Bonjour, je suis</p>
-                    <h1 class="text-6xl font-extrabold text-gray-900 mb-4 scroll-reveal">Soulemane Diallo</h1>
-                    <p id="role-text" class="text-3xl text-gray-600 font-light typing-effect scroll-reveal">Développeur Web</p>
-                    <p class="text-xl text-gray-600 mb-8 scroll-reveal">Je transforme les idées complexes en solutions web élégantes et performantes.</p>
-                    <div class="flex space-x-4">
-                        <a href="#projets" class="px-6 py-3 bg-primary text-white rounded-full hover:bg-blue-600 transition">Mes Projets</a>
-                        <a href="#contact" class="px-6 py-3 border border-gray-300 rounded-full hover:bg-gray-100 transition">Contactez-moi</a>
-                    </div>
-                </div>
-                <div class="lg:w-1/2 mt-12 lg:mt-0 flex justify-center scroll-reveal">
-                    <div class="w-64 h-64 bg-gray-200 rounded-full overflow-hidden border-4 border-primary relative">
-                        <img src="/portfolio/assets/images/photo_card.jpg" alt="Photo Profil" class="w-full h-full object-cover rounded-full">
-                        <div class="absolute inset-0 rounded-full border-8 border-dashed border-primary/20 animate-spin-slow"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
+<!-- NAVBAR -->
+<header class="fixed top-0 w-full bg-white shadow z-50">
+  <nav class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+    <img src="assets/images/logo.svg" class="h-8" alt="Logo">
 
-        <!-- À Propos -->
-        <section id="a-propos" class="section-padding bg-gray-100">
-            <div class="max-w-7xl mx-auto px-4 lg:flex lg:space-x-12">
-                <div class="lg:w-1/3 mb-8 lg:mb-0 flex justify-center scroll-reveal">
-                    <img src="/portfolio/assets/images/photo_card.jpg" alt="Photo Profil" class="w-full max-w-xs rounded-xl shadow-2xl">
-                </div>
-                <div class="lg:w-2/3 space-y-6 scroll-reveal">
-                    <h2 class="text-4xl font-bold mb-4">À Propos de Moi</h2>
-                    <p>Je suis développeur web full-stack passionné par le front-end et le back-end, spécialisé en React, Node.js et bases de données.</p>
-                    <button onclick="downloadCV()" class="px-8 py-3 bg-gray-800 text-white rounded-full hover:bg-gray-700">Télécharger Mon CV</button>
-                </div>
-            </div>
-        </section>
+    <div class="hidden md:flex space-x-8">
+      <a href="#home" class="hover:text-blue-600">Accueil</a>
+      <a href="#about" class="hover:text-blue-600">À propos</a>
+      <a href="#skills" class="hover:text-blue-600">Compétences</a>
+      <a href="#projects" class="hover:text-blue-600">Projets</a>
+      <a href="#cv" class="hover:text-blue-600">CV</a>
+      <a href="#contact"
+         class="px-4 py-1.5 border border-white rounded-full hover:bg-green-400 hover:text-blue-600 transition">
+         Contact
+      </a>
+    </div>
+  </nav>
+</header>
 
-        <!-- Compétences -->
-        <section id="competences" class="section-padding bg-white">
-            <div class="max-w-7xl mx-auto px-4">
-                <h2 class="text-4xl font-bold text-center mb-12 scroll-reveal">Compétences</h2>
-                <div id="skills-container" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-                    <!-- JS injecte les compétences ici -->
-                </div>
-            </div>
-        </section>
+<!-- HERO -->
+<section id="home" class="min-h-screen flex items-center pt-20">
+  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
 
-        <!-- Projets -->
-        <section id="projets" class="section-padding bg-gray-100">
-            <div class="max-w-7xl mx-auto px-4">
-                <h2 class="text-4xl font-bold text-center mb-12 scroll-reveal">Mes Projets</h2>
-                <div id="projects-container" class="grid md:grid-cols-2 gap-8">
-                    <!-- JS injecte les projets ici -->
-                </div>
-            </div>
-        </section>
+    <div>
+      <p class="text-blue-600 font-semibold">Bonjour, je suis</p>
+      <h1 class="text-5xl font-bold mt-2">Soulemane Diallo</h1>
+      <p class="text-xl text-gray-600 mt-4">Développeur Web & Référent Digital</p>
 
-        <!-- Contact -->
-        <section id="contact" class="section-padding bg-white">
-            <div class="max-w-7xl mx-auto px-4 lg:flex lg:space-x-12">
-                <form id="contact-form" class="lg:w-2/3 space-y-6 p-8 bg-gray-50 rounded-xl shadow-lg border border-gray-200">
-                    <input type="text" placeholder="Nom complet" required class="w-full p-3 border rounded-lg"/>
-                    <input type="email" placeholder="Email" required class="w-full p-3 border rounded-lg"/>
-                    <textarea placeholder="Message" rows="5" required class="w-full p-3 border rounded-lg"></textarea>
-                    <button type="submit" class="w-full p-3 bg-primary text-white rounded-lg">Envoyer</button>
-                </form>
-                <div class="lg:w-1/3 mt-12 lg:mt-0 space-y-4">
-                    <p>Email: <a href="soulemanediallo@gmail.com" class="text-primary">soulemanediallo@gmail.com</a></p>
-                    <p>LinkedIn: <a href="#" class="text-primary">Profil</a></p>
-                    <p>GitHub: <a href="#" class="text-primary">Dépôt</a></p>
-                </div>
-            </div>
-        </section>
-    </main>
+      <div class="mt-8 flex gap-4">
+        <a href="#projects" class="px-6 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700">
+          Mes projets
+        </a>
+        <a href="#contact" class="px-6 py-3 border rounded-full hover:bg-gray-100">
+          Me contacter
+        </a>
+      </div>
+    </div>
 
-    <footer class="bg-gray-800 text-white py-8 text-center">
-   <img src="/portfolio/assets/images/logo.svg" alt="Logo Soulemane Diallo">
-    <p>&copy; 2025 Soulemane Diallo. Tous droits réservés.</p>
-    <p class="text-sm text-gray-400 mt-1">Développeur Web & Référent Digital</p>
+    <div class="flex justify-center">
+      <img src="assets/images/profile.png"
+           class="w-72 h-72 rounded-full object-cover border-4 border-blue-600"
+           alt="Photo Soulemane">
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-gray-800 text-white py-8 text-center">
+  <img src="assets/images/logo.svg" class="h-8 mx-auto mb-3" alt="Logo">
+  <p>© 2025 Soulemane Diallo</p>
+  <p class="text-sm text-gray-400">Développeur Web & Référent Digital</p>
 </footer>
 
-
-    <script src="js/main.js"></script>
-    <script>lucide.createIcons();</script>
 </body>
 </html>
