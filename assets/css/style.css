@@ -1,0 +1,217 @@
+/* Font */
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+/* Scroll smooth */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Nav links hover */
+.nav-link {
+  transition: color 0.3s ease;
+}
+.nav-link:hover {
+  color: #2563eb;
+}
+
+/* Fade animation */
+.fade-up {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 1s ease-out forwards;
+}
+
+.delay-1 {
+  animation-delay: 0.3s;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Avatar container */
+.avatar-wrapper {
+  width: 450px;
+  height: 450px;
+  border-radius: 50%;
+  object-fit: cover;
+
+  /* Neumorphism */
+  background: #e5e7eb; /* gris clair Tailwind */
+  box-shadow:
+    6px 6px 12px rgba(0, 0, 0, 0.15),
+   -6px -6px 12px rgba(255, 255, 255, 0.8);
+
+  /* Effet flottant */
+  animation: float 6s ease-in-out infinite;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover : léger effet pressé */
+.avatar-wrapper:hover {
+  box-shadow:
+    inset 3px 3px 6px rgba(0, 0, 0, 0.15),
+    inset -3px -3px 6px rgba(255, 255, 255, 0.8);
+  transform: scale(1.05);
+}
+
+@keyframes float {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
+}
+
+
+/* Logo personnalisable */
+.logo-custom {
+  height: 80px;          /* Taille du logo */
+  margin-left: -50px;    /* Décale vers la gauche */
+  width: auto;
+  transition: transform 0.3s ease;
+   cursor: pointer;
+}
+
+/* Optionnel : petit effet au survol */
+.logo-custom:hover {
+  transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .logo-custom {
+    height: 52px;
+    margin-left: -8px;
+  }
+}
+
+/* Skills slider */
+.skills-slider {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.skills-track {
+  display: flex;
+  gap: 55px;
+  animation: scrollSkills 30s linear infinite;
+}
+
+.skill-logo {
+  min-width: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.skill-logo img {
+  height: 60px;
+  opacity: 0.8;
+  transition: all 0.1s ease;
+}
+
+.skill-logo img:hover {
+  opacity: 1;
+  transform: scale(1.15);
+}
+
+/* Animation */
+@keyframes scrollSkills {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-150%);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .skill-logo img {
+    height: 45px;
+  }
+}
+/* Projects */
+.project-card {
+  background: white;
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 35px rgba(0,0,0,0.08);
+}
+
+/* Image projet */
+.project-image {
+  width: 100%;
+  height: 180px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #f3f4f6;
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Boutons */
+.btn-code,
+.btn-demo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.25s ease;
+}
+
+/* Code */
+.btn-code {
+  border: 1px solid #e5e7eb;
+  background: #fff;
+}
+
+.btn-code img {
+  width: 18px;
+  height: 18px;
+}
+
+.btn-code:hover {
+  background: #f9fafb;
+}
+
+/* Demo */
+.btn-demo {
+  background: #2563eb;
+  color: white;
+}
+
+.btn-demo:hover {
+  background: #1e40af;
+}
+/* About section */
+.about-avatar {
+  width: 260px;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 999px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+  transition: transform 0.4s ease;
+}
+
+.about-avatar:hover {
+  transform: scale(1.03);
+}

@@ -11,63 +11,597 @@
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  <style>
-    body { font-family: 'Inter', sans-serif; }
-  </style>
+  <!-- CSS personnalisé -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script>
+  tailwind.config = {
+    darkMode: 'class'
+  }
+</script>
+
 </head>
 
-<body class="bg-gray-50 text-gray-800">
+<body class="bg-gray-50 text-gray-800 font-inter dark:bg-gray-900 dark:text-gray-200 transition-colors duration-300">
 
 <!-- NAVBAR -->
-<header class="fixed top-0 w-full bg-white shadow z-50">
-  <nav class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-   <img src="assets/images/logo.svg" class="h-16 md:h-19 w-auto" alt="Logo Soulemane Diallo">
+<header class="fixed top-0 w-full bg-white dark:bg-gray-900 shadow z-50">
+  <nav class="w-full px-4 h-16 flex items-center justify-between max-w-7xl mx-auto">
+    
+    <!-- Logo -->
+  <img src="assets/images/logo.svg"
+     alt="Logo Soulemane Diallo"
+     class="logo-custom"
+     onclick="window.location.href = window.location.pathname + '?reload=' + new Date().getTime();">
 
-    <div class="hidden md:flex space-x-8">
-      <a href="#home" class="hover:text-blue-600">Accueil</a>
-      <a href="#about" class="hover:text-blue-600">À propos</a>
-      <a href="#skills" class="hover:text-blue-600">Compétences</a>
-      <a href="#projects" class="hover:text-blue-600">Projets</a>
-      <a href="#cv" class="hover:text-blue-600">CV</a>
-     <a href="#contact" class="hover:text-blue-600 transition-colors duration-300"> Contact</a>
+
+    <!-- Liens -->
+    <div class="hidden md:flex space-x-8 font-medium">
+      <a href="#home" class="nav-link text-gray-700 dark:text-gray-200 hover:text-blue-600">Accueil</a>
+      <a href="#about"class="nav-link text-gray-700 dark:text-gray-200 hover:text-blue-600">À propos</a>
+      <a href="#skills" class="nav-link text-gray-700 dark:text-gray-200 hover:text-blue-600">Compétences</a>
+      <a href="#projects" class="nav-link text-gray-700 dark:text-gray-200 hover:text-blue-600">Projets</a>
+      <a href="#cv" class="nav-link text-gray-700 dark:text-gray-200 hover:text-blue-600">CV</a>
+      <a href="#contact" class="nav-link text-gray-700 dark:text-gray-200 hover:text-blue-600">Contact</a>
     </div>
+
   </nav>
+  <button id="theme-toggle"
+  class="absolute top-24 right-6 bg-white dark:bg-gray-800 dark:text-gray-200 shadow-md rounded-full p-3 hover:bg-gray-100 dark:hover:bg-gray-700 transition">
+  🌙
+</button>
+
 </header>
 
 <!-- HERO -->
-<section id="home" class="min-h-screen flex items-center pt-20">
-  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+<section id="home" class="min-h-screen flex items-center pt-20 bg-gray-50 dark:bg-gray-900">
 
-    <div>
-      <p class="text-blue-600 font-semibold">Bonjour, je suis</p>
-      <h1 class="text-5xl font-bold mt-2">Soulemane Diallo</h1>
-      <p class="text-xl text-gray-600 mt-4">Développeur Web & Référent Digital</p>
+    
+  <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
 
-      <div class="mt-8 flex gap-4">
-        <a href="#projects" class="px-6 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700">
-          Mes projets
+    <!-- Texte -->
+    <div class="fade-up">
+      <p class="text-blue-600 font-semibold text-lg">Bonjour, je suis</p>
+
+      <h1 class="text-5xl md:text-6xl font-bold mt-3">
+        Soulemane Diallo
+      </h1>
+
+      <p class="text-gray-600 dark:text-gray-300 max-w-2xl">
+  <span id="typing-text" class="border-r-2 border-blue-600 pr-1"></span>
+</p>
+
+  <p class="text-gray-600 dark:text-gray-300 max-w-2xl">
+  Titulaire d’une licence en génie logiciel et actuellement étudiant en troisième année
+  Banque, Assurance et Finance, je développe des solutions numériques adaptées
+  aussi bien aux besoins techniques qu’aux réalités métier.
+</p>
+
+      <div class="mt-8 flex gap-4 flex-wrap">
+        <a href="#projects"
+           class="px-6 py-3 bg-blue-500 text-white rounded-full hover:bg-blue-700 transition">
+           Voir mes projets
         </a>
-        <a href="#contact" class="px-6 py-3 border rounded-full hover:bg-gray-100">
-          Me contacter
-        </a>
+
+      <a href="#contact"
+   class="px-7 py-3 rounded-full
+          bg-emerald-500 dark:bg-emerald-600
+          text-white
+          shadow-[6px_6px_12px_rgba(0,0,0,0.25),_-6px_-6px_12px_rgba(255,255,255,0.25)]
+          dark:shadow-[6px_6px_14px_rgba(0,0,0,0.6),_-6px_-6px_14px_rgba(255,255,255,0.08)]
+          hover:shadow-[inset_4px_4px_8px_rgba(0,0,0,0.25),_inset_-4px_-4px_8px_rgba(255,255,255,0.25)]
+          dark:hover:shadow-[inset_4px_4px_10px_rgba(0,0,0,0.6),_inset_-4px_-4px_10px_rgba(255,255,255,0.1)]
+          transition-all duration-300 active:scale-95">
+  Me contacter
+</a>
+
       </div>
     </div>
 
-    <div class="flex justify-center">
-      <img src="assets/images/profile.png"
-           class="w-72 h-72 rounded-full object-cover border-4 border-blue-600"
-           alt="Photo Soulemane">
+    <!-- Photo / Avatar -->
+    <div class="flex justify-center fade-up delay-1">
+      <div class="avatar-wrapper">
+        <img src="assets/images/Mon_profil-removebg-preview.png"
+             alt="Soulemane Diallo"
+             class="avatar">
+      </div>
     </div>
 
   </div>
 </section>
 
+
+<!-- A PROPOS -->
+<section id="about" class="py-20 bg-slate-100 dark:bg-gray-800">
+
+  <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+
+    <!-- Image / visuel -->
+    <div class="flex justify-center">
+      <img src="assets/images/profil-removebg-preview.png"
+           alt="Soulemane Diallo"
+           class="about-avatar">
+    </div>
+
+    <div>
+  <h2 class="text-4xl font-bold mb-10">
+    À propos de moi
+  </h2>
+
+  <div class="space-y-6">
+
+   <!-- PROFIL -->
+<div class="bg-gray-100 dark:bg-gray-800
+            p-6 md:p-8 rounded-2xl
+            shadow-[8px_8px_16px_rgba(0,0,0,0.15),_-8px_-8px_16px_rgba(255,255,255,0.7)]
+            dark:shadow-[8px_8px_18px_rgba(0,0,0,0.6),_-8px_-8px_18px_rgba(255,255,255,0.08)]
+            hover:shadow-[inset_6px_6px_12px_rgba(0,0,0,0.15),_inset_-6px_-6px_12px_rgba(255,255,255,0.7)]
+            dark:hover:shadow-[inset_6px_6px_14px_rgba(0,0,0,0.6),_inset_-6px_-6px_14px_rgba(255,255,255,0.08)]
+            transition-all duration-300">
+
+  <h3 class="text-2xl font-semibold mb-4 text-blue-600">
+    Profil
+  </h3>
+
+  <p class="text-gray-700 dark:text-gray-300 text-justify leading-relaxed">
+    Développeur web titulaire d’une <strong>Licence en Génie Logiciel</strong>,
+    je poursuis également une formation en <strong>Banque, Assurance et Finance (BAF)</strong>.
+    Cette double compétence me permet de concevoir des solutions numériques
+    adaptées aux enjeux métiers et aux réalités économiques.
+  </p>
+</div>
+
+<!-- EXPERTISE -->
+<div class="bg-gray-100 dark:bg-gray-800
+            p-6 md:p-8 rounded-2xl
+            shadow-[8px_8px_16px_rgba(0,0,0,0.15),_-8px_-8px_16px_rgba(255,255,255,0.7)]
+            dark:shadow-[8px_8px_18px_rgba(0,0,0,0.6),_-8px_-8px_18px_rgba(255,255,255,0.08)]
+            hover:shadow-[inset_6px_6px_12px_rgba(0,0,0,0.15),_inset_-6px_-6px_12px_rgba(255,255,255,0.7)]
+            dark:hover:shadow-[inset_6px_6px_14px_rgba(0,0,0,0.6),_inset_-6px_-6px_14px_rgba(255,255,255,0.08)]
+            transition-all duration-300">
+
+  <h3 class="text-2xl font-semibold mb-4 text-blue-600">
+    Expertise & compétences
+  </h3>
+
+  <p class="text-gray-700 dark:text-gray-300 text-justify leading-relaxed">
+    J’interviens sur la conception d’applications web modernes,
+    performantes et sécurisées, en intégrant des notions clés
+    telles que la gestion des données, les processus financiers,
+    la relation client et l’optimisation des opérations.
+  </p>
+</div>
+
+<!-- OBJECTIFS -->
+<div class="bg-gray-100 dark:bg-gray-800
+            p-6 md:p-8 rounded-2xl
+            shadow-[8px_8px_16px_rgba(0,0,0,0.15),_-8px_-8px_16px_rgba(255,255,255,0.7)]
+            dark:shadow-[8px_8px_18px_rgba(0,0,0,0.6),_-8px_-8px_18px_rgba(255,255,255,0.08)]
+            hover:shadow-[inset_6px_6px_12px_rgba(0,0,0,0.15),_inset_-6px_-6px_12px_rgba(255,255,255,0.7)]
+            dark:hover:shadow-[inset_6px_6px_14px_rgba(0,0,0,0.6),_inset_-6px_-6px_14px_rgba(255,255,255,0.08)]
+            transition-all duration-300">
+
+  <h3 class="text-2xl font-semibold mb-4 text-blue-600">
+    Objectifs professionnels
+  </h3>
+
+  <p class="text-gray-700 dark:text-gray-300 text-justify leading-relaxed">
+    Curieux, rigoureux et orienté solution, je souhaite participer
+    à des projets variés alliant technologie et métier, notamment
+    dans le développement web et la digitalisation des services
+    bancaires, financiers et assurantiels.
+  </p>
+</div>
+
+
+  </div>
+</div>
+
+
+  </div>
+</section>
+
+<!-- COMPÉTENCES -->
+<section id="skills" class="py-20 bg-white dark:bg-gray-900 overflow-hidden">
+  <div class="max-w-6xl mx-auto px-6">
+
+    <h2 class="text-4xl font-bold text-center mb-4">
+      Compétences
+    </h2>
+
+    <p class="text-center text-gray-600 mb-12">
+      Technologies & outils que j’utilise dans mes projets IT et métiers
+    </p>
+
+    <!-- Slider -->
+    <div class="skills-slider">
+      <div class="skills-track">
+
+        <!-- IT -->
+        <div class="skill-logo"><img src="assets/images/skills/html.png" alt="HTML"></div>
+        <div class="skill-logo"><img src="assets/images/skills/css.png" alt="CSS"></div>
+        <div class="skill-logo"><img src="assets/images/skills/js.png" alt="JavaScript"></div>
+        <div class="skill-logo"><img src="assets/images/skills/python.png" alt="Python"></div>
+        <div class="skill-logo"><img src="assets/images/skills/flask.png" alt="Flask"></div>
+        <div class="skill-logo"><img src="assets/images/skills/django.png" alt="Django"></div>
+        <div class="skill-logo"><img src="assets/images/skills/mysql.png" alt="MySQL"></div>
+        <div class="skill-logo"><img src="assets/images/skills/git.png" alt="Git"></div>
+        <div class="skill-logo"><img src="assets/images/skills/github.png" alt="GitHub"></div>
+        
+        <!-- Bureautique & Digital -->
+        <div class="skill-logo"><img src="assets/images/skills/excel.png" alt="Excel"></div>
+        <div class="skill-logo"><img src="assets/images/skills/powerpoint.png" alt="PowerPoint"></div>
+        <div class="skill-logo"><img src="assets/images/skills/outlook.png" alt="Outlook"></div>
+        <div class="skill-logo"><img src="assets/images/skills/wordpress.png" alt="WordPress"></div>
+        <div class="skill-logo"><img src="assets/images/skills/shell.png" alt="Shell"></div>
+
+          <div class="skill-logo"><img src="assets/images/skills/bi.png" alt="PowerBi"></div>
+          <div class="skill-logo"><img src="assets/images/skills/xml.png" alt="xml"></div>
+           <div class="skill-logo"><img src="assets/images/skills/java.png" alt="Java"></div>
+            <div class="skill-logo"><img src="assets/images/skills/angular.png" alt="Angular"></div>
+             <div class="skill-logo"><img src="assets/images/skills/netbeans.png" alt="Netbeans"></div>
+
+        <!-- DUPLICATION POUR SCROLL INFINI -->
+        <!-- (copie exacte) -->
+        <div class="skill-logo"><img src="assets/images/skills/html.png"></div>
+        <div class="skill-logo"><img src="assets/images/skills/css.png"></div>
+        <div class="skill-logo"><img src="assets/images/skills/js.png"></div>
+        <div class="skill-logo"><img src="assets/images/skills/python.png"></div>
+        <div class="skill-logo"><img src="assets/images/skills/flask.png"></div>
+        <div class="skill-logo"><img src="assets/images/skills/django.png"></div>
+        <div class="skill-logo"><img src="assets/images/skills/mysql.png"></div>
+        <div class="skill-logo"><img src="assets/images/skills/git.png"></div>
+        <div class="skill-logo"><img src="assets/images/skills/github.png"></div>
+        <div class="skill-logo"><img src="assets/images/skills/excel.png"></div>
+        <div class="skill-logo"><img src="assets/images/skills/powerpoint.png"></div>
+        <div class="skill-logo"><img src="assets/images/skills/outlook.png"></div>
+        <div class="skill-logo"><img src="assets/images/skills/wordpress.png"></div>
+        <div class="skill-logo"><img src="assets/images/skills/shell.png"></div>
+          <div class="skill-logo"><img src="assets/images/skills/bi.png" alt="PowerBi"></div>
+          <div class="skill-logo"><img src="assets/images/skills/xml.png" alt="xml"></div>
+           <div class="skill-logo"><img src="assets/images/skills/java.png" alt="Java"></div>
+            <div class="skill-logo"><img src="assets/images/skills/angular.png" alt="Angular"></div>
+             <div class="skill-logo"><img src="assets/images/skills/netbeans.png" alt="Netbeans"></div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROJETS -->
+<section id="projects" class="py-20 bg-gray-50 dark:bg-gray-800">
+  <div class="max-w-6xl mx-auto px-6">
+
+    <h2 class="text-4xl font-bold text-center mb-4">
+      Projets réalisés
+    </h2>
+
+    <p class="text-center text-gray-600 mb-12">
+      Quelques projets illustrant mes compétences techniques et métiers
+    </p>
+
+    <div class="relative">
+
+      <!-- Flèches -->
+      <button id="prev-project" class="absolute left-0 top-1/2 -translate-y-1/2 bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-200 p-2 rounded-full shadow hover:bg-gray-100 dark:hover:bg-gray-600 z-10">
+        ◀
+      </button>
+      <button id="next-project" class="absolute right-0 top-1/2 -translate-y-1/2 bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-200 p-2 rounded-full shadow hover:bg-gray-100 dark:hover:bg-gray-600 z-10">
+        ▶
+      </button>
+
+      <!-- Slider -->
+      <div id="projects-slider" class="flex gap-8 overflow-x-auto scroll-smooth pb-4">
+
+        <!-- Projet 1 -->
+        <div class="project-card min-w-[300px] flex-shrink-0 p-5 bg-white dark:bg-gray-800 rounded-2xl shadow hover:shadow-md transition">
+          <div class="project-image">
+            <img src="assets/images/.png" alt="Projet gestion hôtelière" class="rounded-xl">
+          </div>
+          <h3 class="text-2xl font-semibold mt-4 mb-2">Application de gestion hôtelière</h3>
+          <p class="text-gray-600 mb-3">
+            Application web permettant la gestion des réservations, clients et opérations internes d’un hôtel.
+          </p>
+
+          <!-- Technologies -->
+          <div class="flex flex-wrap gap-2 mb-5">
+            <span class="px-3 py-1 border border-blue-300 rounded-full text-sm text-blue-700">HTML</span>
+            <span class="px-3 py-1 border border-blue-300 rounded-full text-sm text-blue-700">CSS</span>
+            <span class="px-3 py-1 border border-blue-300 rounded-full text-sm text-blue-700">JavaScript</span>
+            <span class="px-3 py-1 border border-blue-300 rounded-full text-sm text-blue-700">Python</span>
+            <span class="px-3 py-1 border border-blue-300 rounded-full text-sm text-blue-700">Django</span>
+          </div>
+
+          <div class="flex gap-4">
+            <a href="#" class="btn-code flex items-center gap-1">
+              <img src="assets/images/skills/github.png" alt="GitHub"> Code
+            </a>
+            <a href="#" class="btn-demo">Démo</a>
+          </div>
+        </div>
+
+        <!-- Projet 2 -->
+        <div class="project-card min-w-[300px] flex-shrink-0 p-5 bg-white dark:bg-gray-800 rounded-2xl shadow hover:shadow-md transition">
+          <div class="project-image">
+            <img src="assets/images/project-portfolio.png" alt="Portfolio personnel" class="rounded-xl">
+          </div>
+          <h3 class="text-2xl font-semibold mt-4 mb-2">Portfolio personnel</h3>
+          <p class="text-gray-600 mb-3">
+            Portfolio responsive mettant en avant mon profil, mes compétences et mes projets.
+          </p>
+
+          <!-- Technologies -->
+          <div class="flex flex-wrap gap-2 mb-5">
+            <span class="px-3 py-1 border border-blue-300 rounded-full text-sm text-blue-700">HTML</span>
+            <span class="px-3 py-1 border border-blue-300 rounded-full text-sm text-blue-700">Tailwind CSS</span>
+            <span class="px-3 py-1 border border-blue-300 rounded-full text-sm text-blue-700">JavaScript</span>
+          </div>
+
+          <div class="flex gap-4">
+            <a href="#" class="btn-code flex items-center gap-1">
+              <img src="assets/images/skills/github.png" alt="GitHub"> Code
+            </a>
+            <a href="#" class="btn-demo">Démo</a>
+          </div>
+        </div>
+
+        <!-- Projet 3 (duplicata) -->
+        <div class="project-card min-w-[300px] flex-shrink-0 p-5 bg-white dark:bg-gray-800 rounded-2xl shadow hover:shadow-md transition">
+          <div class="project-image">
+            <img src="assets/images/.svg" alt="Projet gestion hôtelière" class="rounded-xl">
+          </div>
+          <h3 class="text-2xl font-semibold mt-4 mb-2">Application de gestion hôtelière</h3>
+          <p class="text-gray-600 mb-3">
+            Application web permettant la gestion des réservations, clients et opérations internes d’un hôtel.
+          </p>
+
+          <div class="flex flex-wrap gap-2 mb-5">
+            <span class="px-3 py-1 border border-blue-300 rounded-full text-sm text-blue-700">HTML</span>
+            <span class="px-3 py-1 border border-blue-300 rounded-full text-sm text-blue-700">CSS</span>
+            <span class="px-3 py-1 border border-blue-300 rounded-full text-sm text-blue-700">JavaScript</span>
+            <span class="px-3 py-1 border border-blue-300 rounded-full text-sm text-blue-700">Python</span>
+            <span class="px-3 py-1 border border-blue-300 rounded-full text-sm text-blue-700">Flask</span>
+          </div>
+
+          <div class="flex gap-4">
+            <a href="#" class="btn-code flex items-center gap-1">
+              <img src="assets/images/skills/github.png" alt="GitHub"> Code
+            </a>
+            <a href="#" class="btn-demo">Démo</a>
+          </div>
+        </div>
+
+        <!-- Projet 4 (duplicata) -->
+        <div class="project-card min-w-[300px] flex-shrink-0 p-5 bg-white dark:bg-gray-800 rounded-2xl shadow hover:shadow-md transition">
+          <div class="project-image">
+            <img src="assets/images/project-portfolio.png" alt="Portfolio personnel" class="rounded-xl">
+          </div>
+          <h3 class="text-2xl font-semibold mt-4 mb-2">Portfolio personnel</h3>
+          <p class="text-gray-600 mb-3">
+            Portfolio responsive mettant en avant mon profil, mes compétences et mes projets.
+          </p>
+
+          <div class="flex flex-wrap gap-2 mb-5">
+            <span class="px-3 py-1 border border-blue-300 rounded-full text-sm text-blue-700">HTML</span>
+            <span class="px-3 py-1 border border-blue-300 rounded-full text-sm text-blue-700">Tailwind CSS</span>
+            <span class="px-3 py-1 border border-blue-300 rounded-full text-sm text-blue-700">JavaScript</span>
+          </div>
+
+          <div class="flex gap-4">
+            <a href="#" class="btn-code flex items-center gap-1">
+              <img src="assets/images/skills/github.png" alt="GitHub"> Code
+            </a>
+            <a href="#" class="btn-demo">Démo</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JS Slider simple -->
+<script>
+const slider = document.getElementById("projects-slider");
+const nextBtn = document.getElementById("next-project");
+const prevBtn = document.getElementById("prev-project");
+
+nextBtn.addEventListener("click", () => {
+  slider.scrollBy({ left: 320, behavior: "smooth" });
+});
+
+prevBtn.addEventListener("click", () => {
+  slider.scrollBy({ left: -320, behavior: "smooth" });
+});
+</script>
+
+
+<!-- CV -->
+<section id="cv" class="py-20 bg-gray-100 dark:bg-gray-900">
+  <div class="max-w-6xl mx-auto px-6 text-center">
+
+    <!-- Titre -->
+    <h2 class="text-4xl font-bold mb-6 text-gray-900 dark:text-gray-200">
+      Mon CV
+    </h2>
+
+    <!-- Description -->
+    <p class="text-gray-700 dark:text-gray-300 mb-6 max-w-2xl mx-auto">
+      Vous pouvez télécharger mon CV complet pour consulter mes expériences, formations et compétences détaillées
+      en développement web ainsi qu’en banque, assurance et finance.
+    </p>
+
+    <!-- Bouton Télécharger -->
+    <a href="assets/CV/_Curriculum_Vitae_Soulemane_Diallo.pdf" download
+       class="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 transition">
+       <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+           d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M12 12v8m0 0l-4-4m4 4l4-4M12 4v8" />
+       </svg>
+       Télécharger mon CV
+    </a>
+
+    <!-- Petit texte explicatif -->
+    <p class="mt-4 text-gray-600 dark:text-gray-300 text-sm">
+      Cliquez sur le bouton ci-dessus pour télécharger mon CV complet au format PDF.
+    </p>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="py-20 bg-white dark:bg-gray-800">
+  <div class="max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-12">
+
+    <!-- Formulaire -->
+    <div class="bg-gray-50 dark:bg-gray-900 p-8 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 transition hover:shadow-xl">
+      <h2 class="text-3xl font-bold mb-6 text-center lg:text-left text-gray-900 dark:text-gray-200">Me contacter</h2>
+
+      <form class="space-y-5">
+        <input type="text" name="name" placeholder="Nom complet" required
+               class="w-full p-4 border rounded-xl focus:ring-2 focus:ring-blue-400 focus:outline-none dark:bg-gray-800 dark:text-gray-200"/>
+
+        <input type="email" name="email" placeholder="Email" required
+               class="w-full p-4 border rounded-xl focus:ring-2 focus:ring-blue-400 focus:outline-none dark:bg-gray-800 dark:text-gray-200"/>
+
+        <textarea name="message" placeholder="Votre message" rows="5" required
+                  class="w-full p-4 border rounded-xl focus:ring-2 focus:ring-blue-400 focus:outline-none dark:bg-gray-800 dark:text-gray-200"></textarea>
+
+        <button type="submit"
+                class="w-full p-4 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold rounded-xl hover:from-blue-600 hover:to-blue-700 transition">
+          Envoyer
+        </button>
+      </form>
+    </div>
+
+    <!-- Coordonnées & Réseaux -->
+    <div class="space-y-6">
+
+      <h3 class="text-2xl font-semibold text-gray-900 dark:text-gray-200 mb-4">Mes réseaux</h3>
+
+      <div class="grid gap-4">
+
+        <!-- Email -->
+        <a href="mailto:soulemanediallo1999@gmail.com"
+           class="flex items-center gap-4 p-4 bg-gray-100 dark:bg-gray-700 rounded-xl shadow hover:shadow-md hover:bg-gray-200 dark:hover:bg-gray-600 transition">
+          <img src="assets/images/icons/gmail.svg" alt="Email" class="h-6 w-6">
+          <span>Email: soulemanediallo@gmail.com</span>
+        </a>
+
+        <!-- LinkedIn -->
+        <a href="https://www.linkedin.com/in/soulemane-diallo-1265a81bb" target="_blank"
+           class="flex items-center gap-4 p-4 bg-gray-100 dark:bg-gray-700 rounded-xl shadow hover:shadow-md hover:bg-gray-200 dark:hover:bg-gray-600 transition">
+          <img src="assets/images/icons/linkedin.svg" alt="LinkedIn" class="h-6 w-6">
+          <span>LinkedIn: Mon profil</span>
+        </a>
+
+        <!-- GitHub -->
+        <a href="https://github.com/iasoul433-max" target="_blank"
+           class="flex items-center gap-4 p-4 bg-gray-100 dark:bg-gray-700 rounded-xl shadow hover:shadow-md hover:bg-gray-200 dark:hover:bg-gray-600 transition">
+          <img src="assets/images/icons/github.svg" alt="GitHub" class="h-6 w-6">
+          <span>GitHub: Mon dépôt</span>
+        </a>
+
+        <!-- Téléphone -->
+        <a href="tel:+221772986259"
+           class="flex items-center gap-4 p-4 bg-gray-100 dark:bg-gray-700 rounded-xl shadow hover:shadow-md hover:bg-gray-200 dark:hover:bg-gray-600 transition">
+          <img src="assets/images/icons/phone.svg" alt="Téléphone" class="h-6 w-6">
+          <span>Téléphone: +221 77 298 62 59</span>
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
 <!-- FOOTER -->
-<footer class="bg-gray-800 text-white py-8 text-center">
- <img src="assets/images/logo.svg" class="h-12 md:h-14 w-auto" alt="Logo Soulemane Diallo">
-  <p>© 2025 Soulemane Diallo</p>
-  <p class="text-sm text-gray-400">Développeur Web & Référent Digital</p>
+<footer class="bg-gray-900 dark:bg-black text-gray-200 py-12">
+  <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-8">
+
+    <!-- Liens utiles -->
+    <div class="flex flex-col space-y-2">
+      <h4 class="font-semibold text-lg mb-2">Liens utiles</h4>
+      <a href="#home" class="hover:text-blue-400 transition">Accueil</a>
+      <a href="#about" class="hover:text-blue-400 transition">À propos</a>
+      <a href="#skills" class="hover:text-blue-400 transition">Compétences</a>
+      <a href="#projects" class="hover:text-blue-400 transition">Projets</a>
+      <a href="#contact" class="hover:text-blue-400 transition">Contact</a>
+    </div>
+
+    <!-- Réseaux sociaux -->
+    <div class="flex flex-col space-y-2">
+      <h4 class="font-semibold text-lg mb-2">Réseaux sociaux</h4>
+      <a href="mailto:soulemanediallo1999@gmail.com" class="flex items-center gap-2 hover:text-blue-400 transition">
+        <img src="assets/images/icons/gmail.svg" alt="Email" class="h-5 w-5"> Email
+      </a>
+      <a href="https://www.linkedin.com/in/soulemane-diallo-1265a81bb" target="_blank" class="flex items-center gap-2 hover:text-blue-400 transition">
+        <img src="assets/images/icons/linkedin.svg" alt="LinkedIn" class="h-5 w-5"> LinkedIn
+      </a>
+      <a href="https://github.com/iasoul433-max" target="_blank" class="flex items-center gap-2 hover:text-blue-400 transition">
+        <img src="assets/images/icons/github.svg" alt="GitHub" class="h-5 w-5"> GitHub
+      </a>
+     <a href="https://wa.me/221772986259" target="_blank" class="flex items-center gap-2 hover:text-green-500 transition">
+  <img src="assets/images/icons/phone.svg" alt="WhatsApp" class="h-5 w-5"> WhatsApp
+</a>
+
+    </div>
+
+  </div>
+
+  <!-- Ligne de séparation -->
+  <div class="border-t border-gray-700 mt-8 pt-4 text-center text-gray-500 text-sm">
+    <img src="assets/images/logo.svg" alt="Logo Soulemane Diallo" class="h-10 mx-auto mb-2">
+    © 2025 Soulemane Diallo — Développeur Web & Référent Digital
+  </div>
 </footer>
+
+<script>
+  const texts = [
+    "Développeur Web",
+    "Référent Digital",
+    "Analyste Financier Junior"
+  ];
+
+  let index = 0;
+  let charIndex = 0;
+  const speed = 80;
+  const delay = 1500;
+  const typingElement = document.getElementById("typing-text");
+
+  function typeText() {
+    if (charIndex < texts[index].length) {
+      typingElement.textContent += texts[index].charAt(charIndex);
+      charIndex++;
+      setTimeout(typeText, speed);
+    } else {
+      setTimeout(eraseText, delay);
+    }
+  }
+
+  function eraseText() {
+    if (charIndex > 0) {
+      typingElement.textContent = texts[index].substring(0, charIndex - 1);
+      charIndex--;
+      setTimeout(eraseText, speed / 2);
+    } else {
+      index = (index + 1) % texts.length;
+      setTimeout(typeText, speed);
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", typeText);
+</script>
+
+<script>
+  const toggle = document.getElementById("theme-toggle");
+
+  toggle.addEventListener("click", () => {
+    document.documentElement.classList.toggle("dark");
+  });
+</script>
 
 </body>
 </html>
