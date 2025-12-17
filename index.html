@@ -276,8 +276,13 @@
       Projets réalisés
     </h2>
 
-    <p class="text-center text-gray-600 mb-12">
+    <p class="text-center text-gray-600 mb-4">
       Quelques projets illustrant mes compétences techniques et métiers
+    </p>
+
+    <!-- Message en rouge -->
+    <p class="text-center text-red-600 mb-8 font-semibold">
+      ⚠ Cours d’implémentation, consultez les détails pour un aperçu de chaque projet
     </p>
 
     <div class="relative">
@@ -294,104 +299,212 @@
       <div id="projects-slider" class="flex gap-8 overflow-x-auto scroll-smooth pb-4">
 
         <!-- Projet 1 -->
-        <div class="project-card min-w-[300px] flex-shrink-0 p-5 bg-white dark:bg-gray-800 rounded-2xl shadow hover:shadow-md transition">
-          <div class="project-image">
-            <img src="assets/images/.png" alt="Projet gestion hôtelière" class="rounded-xl">
-          </div>
-          <h3 class="text-2xl font-semibold mt-4 mb-2">Application de gestion hôtelière</h3>
-          <p class="text-gray-600 mb-3">
-            Application web permettant la gestion des réservations, clients et opérations internes d’un hôtel.
-          </p>
+        <div class="project-card min-w-[300px] flex-shrink-0 p-5 bg-white dark:bg-gray-800 rounded-2xl shadow hover:shadow-md transition relative">
+          <div class="card-front">
+            <div class="project-image">
+              <img src="assets/images/projects/hotel.png" alt="Application de gestion hôtelière" class="rounded-xl">
+            </div>
+            <h3 class="text-2xl font-semibold mt-4 mb-2">Application de gestion hôtelière</h3>
+            <p class="text-gray-600 mb-3">
+              Gestion des réservations, clients et opérations internes d’un hôtel.
+            </p>
 
-          <!-- Technologies -->
-          <div class="flex flex-wrap gap-2 mb-5">
-            <span class="px-3 py-1 border border-blue-300 rounded-full text-sm text-blue-700">HTML</span>
-            <span class="px-3 py-1 border border-blue-300 rounded-full text-sm text-blue-700">CSS</span>
-            <span class="px-3 py-1 border border-blue-300 rounded-full text-sm text-blue-700">JavaScript</span>
-            <span class="px-3 py-1 border border-blue-300 rounded-full text-sm text-blue-700">Python</span>
-            <span class="px-3 py-1 border border-blue-300 rounded-full text-sm text-blue-700">Django</span>
+            <div class="flex flex-wrap gap-2 mb-5">
+              <span class="px-3 py-1 border border-blue-300 rounded-full text-sm text-blue-700">HTML</span>
+              <span class="px-3 py-1 border border-blue-300 rounded-full text-sm text-blue-700">CSS</span>
+              <span class="px-3 py-1 border border-blue-300 rounded-full text-sm text-blue-700">JavaScript</span>
+              <span class="px-3 py-1 border border-blue-300 rounded-full text-sm text-blue-700">Python</span>
+              <span class="px-3 py-1 border border-blue-300 rounded-full text-sm text-blue-700">Django</span>
+            </div>
+
+            <div class="flex gap-4">
+              <a href="#" class="btn-code flex items-center gap-1">
+                <img src="assets/images/skills/github.png" alt="GitHub"> Code
+              </a>
+              <a href="#" class="btn-demo">Démo</a>
+              <button class="btn-detail bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">Détails</button>
+            </div>
           </div>
 
-          <div class="flex gap-4">
-            <a href="#" class="btn-code flex items-center gap-1">
-              <img src="assets/images/skills/github.png" alt="GitHub"> Code
-            </a>
-            <a href="#" class="btn-demo">Démo</a>
+          <div class="card-back hidden absolute top-0 left-0 w-full h-full p-5 bg-white dark:bg-gray-800 rounded-2xl shadow flex flex-col">
+            <h3 class="text-2xl font-semibold mb-3">Détails du projet</h3>
+            <p class="text-gray-700 dark:text-gray-200 mb-4">
+              Ce projet permet de gérer un hôtel avec réservation en ligne, suivi des chambres, facturation et statistiques. Backend en Django, frontend responsive HTML/CSS/JS.
+            </p>
+            <button class="btn-back bg-gray-500 text-white px-3 py-1 rounded hover:bg-gray-600 mt-auto">Retour</button>
           </div>
         </div>
 
         <!-- Projet 2 -->
-        <div class="project-card min-w-[300px] flex-shrink-0 p-5 bg-white dark:bg-gray-800 rounded-2xl shadow hover:shadow-md transition">
-          <div class="project-image">
-            <img src="assets/images/project-portfolio.png" alt="Portfolio personnel" class="rounded-xl">
-          </div>
-          <h3 class="text-2xl font-semibold mt-4 mb-2">Portfolio personnel</h3>
-          <p class="text-gray-600 mb-3">
-            Portfolio responsive mettant en avant mon profil, mes compétences et mes projets.
-          </p>
+        <div class="project-card min-w-[300px] flex-shrink-0 p-5 bg-white dark:bg-gray-800 rounded-2xl shadow hover:shadow-md transition relative">
+          <div class="card-front">
+            <div class="project-image">
+              <img src="assets/images/projects/api.png" alt="API de réservation" class="rounded-xl">
+            </div>
+            <h3 class="text-2xl font-semibold mt-4 mb-2">API de réservation</h3>
+            <p class="text-gray-600 mb-3">
+              API RESTful pour gérer les réservations d’hôtels et disponibilités en temps réel.
+            </p>
 
-          <!-- Technologies -->
-          <div class="flex flex-wrap gap-2 mb-5">
-            <span class="px-3 py-1 border border-blue-300 rounded-full text-sm text-blue-700">HTML</span>
-            <span class="px-3 py-1 border border-blue-300 rounded-full text-sm text-blue-700">Tailwind CSS</span>
-            <span class="px-3 py-1 border border-blue-300 rounded-full text-sm text-blue-700">JavaScript</span>
-          </div>
+            <div class="flex flex-wrap gap-2 mb-5">
+              <span class="px-3 py-1 border border-blue-300 rounded-full text-sm text-blue-700">Python</span>
+              <span class="px-3 py-1 border border-blue-300 rounded-full text-sm text-blue-700">Flask</span>
+              <span class="px-3 py-1 border border-blue-300 rounded-full text-sm text-blue-700">MySQL</span>
+              <span class="px-3 py-1 border border-blue-300 rounded-full text-sm text-blue-700">REST API</span>
+            </div>
 
-          <div class="flex gap-4">
-            <a href="#" class="btn-code flex items-center gap-1">
-              <img src="assets/images/skills/github.png" alt="GitHub"> Code
-            </a>
-            <a href="#" class="btn-demo">Démo</a>
-          </div>
-        </div>
-
-        <!-- Projet 3 (duplicata) -->
-        <div class="project-card min-w-[300px] flex-shrink-0 p-5 bg-white dark:bg-gray-800 rounded-2xl shadow hover:shadow-md transition">
-          <div class="project-image">
-            <img src="assets/images/.svg" alt="Projet gestion hôtelière" class="rounded-xl">
-          </div>
-          <h3 class="text-2xl font-semibold mt-4 mb-2">Application de gestion hôtelière</h3>
-          <p class="text-gray-600 mb-3">
-            Application web permettant la gestion des réservations, clients et opérations internes d’un hôtel.
-          </p>
-
-          <div class="flex flex-wrap gap-2 mb-5">
-            <span class="px-3 py-1 border border-blue-300 rounded-full text-sm text-blue-700">HTML</span>
-            <span class="px-3 py-1 border border-blue-300 rounded-full text-sm text-blue-700">CSS</span>
-            <span class="px-3 py-1 border border-blue-300 rounded-full text-sm text-blue-700">JavaScript</span>
-            <span class="px-3 py-1 border border-blue-300 rounded-full text-sm text-blue-700">Python</span>
-            <span class="px-3 py-1 border border-blue-300 rounded-full text-sm text-blue-700">Flask</span>
+            <div class="flex gap-4">
+              <a href="#" class="btn-code flex items-center gap-1">
+                <img src="assets/images/skills/github.png" alt="GitHub"> Code
+              </a>
+              <a href="#" class="btn-demo">Démo</a>
+              <button class="btn-detail bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">Détails</button>
+            </div>
           </div>
 
-          <div class="flex gap-4">
-            <a href="#" class="btn-code flex items-center gap-1">
-              <img src="assets/images/skills/github.png" alt="GitHub"> Code
-            </a>
-            <a href="#" class="btn-demo">Démo</a>
+          <div class="card-back hidden absolute top-0 left-0 w-full h-full p-5 bg-white dark:bg-gray-800 rounded-2xl shadow flex flex-col">
+            <h3 class="text-2xl font-semibold mb-3">Détails du projet</h3>
+            <p class="text-gray-700 dark:text-gray-200 mb-4">
+              Création d'une API sécurisée permettant d’enregistrer et suivre les réservations. Comprend authentification, endpoints pour les clients et statistiques pour l’hôtel.
+            </p>
+            <button class="btn-back bg-gray-500 text-white px-3 py-1 rounded hover:bg-gray-600 mt-auto">Retour</button>
           </div>
         </div>
 
-        <!-- Projet 4 (duplicata) -->
-        <div class="project-card min-w-[300px] flex-shrink-0 p-5 bg-white dark:bg-gray-800 rounded-2xl shadow hover:shadow-md transition">
-          <div class="project-image">
-            <img src="assets/images/project-portfolio.png" alt="Portfolio personnel" class="rounded-xl">
-          </div>
-          <h3 class="text-2xl font-semibold mt-4 mb-2">Portfolio personnel</h3>
-          <p class="text-gray-600 mb-3">
-            Portfolio responsive mettant en avant mon profil, mes compétences et mes projets.
-          </p>
+        <!-- Projet 3 -->
+        <div class="project-card min-w-[300px] flex-shrink-0 p-5 bg-white dark:bg-gray-800 rounded-2xl shadow hover:shadow-md transition relative">
+          <div class="card-front">
+            <div class="project-image">
+              <img src="assets/images/projects/folio.png" alt="Portfolio personnel" class="rounded-xl">
+            </div>
+            <h3 class="text-2xl font-semibold mt-4 mb-2">Portfolio personnel</h3>
+            <p class="text-gray-600 mb-3">
+              Portfolio responsive mettant en avant mon profil, mes compétences et projets.
+            </p>
 
-          <div class="flex flex-wrap gap-2 mb-5">
-            <span class="px-3 py-1 border border-blue-300 rounded-full text-sm text-blue-700">HTML</span>
-            <span class="px-3 py-1 border border-blue-300 rounded-full text-sm text-blue-700">Tailwind CSS</span>
-            <span class="px-3 py-1 border border-blue-300 rounded-full text-sm text-blue-700">JavaScript</span>
+            <div class="flex flex-wrap gap-2 mb-5">
+              <span class="px-3 py-1 border border-blue-300 rounded-full text-sm text-blue-700">HTML</span>
+              <span class="px-3 py-1 border border-blue-300 rounded-full text-sm text-blue-700">CSS</span>
+              <span class="px-3 py-1 border border-blue-300 rounded-full text-sm text-blue-700">JavaScript</span>
+            </div>
+
+            <div class="flex gap-4">
+              <a href="#" class="btn-code flex items-center gap-1">
+                <img src="assets/images/skills/github.png" alt="GitHub"> Code
+              </a>
+              <a href="#" class="btn-demo">Démo</a>
+              <button class="btn-detail bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">Détails</button>
+            </div>
           </div>
 
-          <div class="flex gap-4">
-            <a href="#" class="btn-code flex items-center gap-1">
-              <img src="assets/images/skills/github.png" alt="GitHub"> Code
-            </a>
-            <a href="#" class="btn-demo">Démo</a>
+          <div class="card-back hidden absolute top-0 left-0 w-full h-full p-5 bg-white dark:bg-gray-800 rounded-2xl shadow flex flex-col">
+            <h3 class="text-2xl font-semibold mb-3">Détails du projet</h3>
+            <p class="text-gray-700 dark:text-gray-200 mb-4">
+              Portfolio créé pour centraliser mes compétences et projets, avec responsive design, animations simples et navigation fluide.
+            </p>
+            <button class="btn-back bg-gray-500 text-white px-3 py-1 rounded hover:bg-gray-600 mt-auto">Retour</button>
+          </div>
+        </div>
+
+        <!-- Projet 4 -->
+        <div class="project-card min-w-[300px] flex-shrink-0 p-5 bg-white dark:bg-gray-800 rounded-2xl shadow hover:shadow-md transition relative">
+          <div class="card-front">
+            <div class="project-image">
+              <img src="assets/images/projects/excel-dashboard.png" alt="Dashboard Excel" class="rounded-xl">
+            </div>
+            <h3 class="text-2xl font-semibold mt-4 mb-2">Dashboard Excel & BI</h3>
+            <p class="text-gray-600 mb-3">
+              Tableau de bord interactif pour visualiser des données financières et opérationnelles.
+            </p>
+
+            <div class="flex flex-wrap gap-2 mb-5">
+              <span class="px-3 py-1 border border-blue-300 rounded-full text-sm text-blue-700">Excel</span>
+              <span class="px-3 py-1 border border-blue-300 rounded-full text-sm text-blue-700">Power BI</span>
+            </div>
+
+            <div class="flex gap-4">
+              <a href="#" class="btn-code flex items-center gap-1">
+                <img src="assets/images/skills/github.png" alt="GitHub"> Code
+              </a>
+              <a href="#" class="btn-demo">Démo</a>
+              <button class="btn-detail bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">Détails</button>
+            </div>
+          </div>
+
+          <div class="card-back hidden absolute top-0 left-0 w-full h-full p-5 bg-white dark:bg-gray-800 rounded-2xl shadow flex flex-col">
+            <h3 class="text-2xl font-semibold mb-3">Détails du projet</h3>
+            <p class="text-gray-700 dark:text-gray-200 mb-4">
+              Dashboard interactif pour suivre les ventes, les réservations et indicateurs financiers avec graphiques dynamiques.
+            </p>
+            <button class="btn-back bg-gray-500 text-white px-3 py-1 rounded hover:bg-gray-600 mt-auto">Retour</button>
+          </div>
+        </div>
+
+        <!-- Projet 5 -->
+        <div class="project-card min-w-[300px] flex-shrink-0 p-5 bg-white dark:bg-gray-800 rounded-2xl shadow hover:shadow-md transition relative">
+          <div class="card-front">
+            <div class="project-image">
+              <img src="assets/images/projects/finance-tool.png" alt="Application gestion financière" class="rounded-xl">
+            </div>
+            <h3 class="text-2xl font-semibold mt-4 mb-2">Application de gestion financière</h3>
+            <p class="text-gray-600 mb-3">
+              Outil pour suivre dépenses, revenus et générer des rapports financiers.
+            </p>
+
+            <div class="flex flex-wrap gap-2 mb-5">
+              <span class="px-3 py-1 border border-blue-300 rounded-full text-sm text-blue-700">Python</span>
+              <span class="px-3 py-1 border border-blue-300 rounded-full text-sm text-blue-700">MySQL</span>
+            </div>
+
+            <div class="flex gap-4">
+              <a href="#" class="btn-code flex items-center gap-1">
+                <img src="assets/images/skills/github.png" alt="GitHub"> Code
+              </a>
+              <a href="#" class="btn-demo">Démo</a>
+              <button class="btn-detail bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">Détails</button>
+            </div>
+          </div>
+
+          <div class="card-back hidden absolute top-0 left-0 w-full h-full p-5 bg-white dark:bg-gray-800 rounded-2xl shadow flex flex-col">
+            <h3 class="text-2xl font-semibold mb-3">Détails du projet</h3>
+            <p class="text-gray-700 dark:text-gray-200 mb-4">
+              Application pour PME permettant de suivre la trésorerie, générer des rapports mensuels et analyser les flux financiers.
+            </p>
+            <button class="btn-back bg-gray-500 text-white px-3 py-1 rounded hover:bg-gray-600 mt-auto">Retour</button>
+          </div>
+        </div>
+
+        <!-- Projet 6 -->
+        <div class="project-card min-w-[300px] flex-shrink-0 p-5 bg-white dark:bg-gray-800 rounded-2xl shadow hover:shadow-md transition relative">
+          <div class="card-front">
+            <div class="project-image">
+              <img src="assets/images/projects/automation.png" alt="Script automatisation" class="rounded-xl">
+            </div>
+            <h3 class="text-2xl font-semibold mt-4 mb-2">Automatisation de tâches</h3>
+            <p class="text-gray-600 mb-3">
+              Scripts pour automatiser la génération de rapports et envoi d’emails.
+            </p>
+
+            <div class="flex flex-wrap gap-2 mb-5">
+              <span class="px-3 py-1 border border-blue-300 rounded-full text-sm text-blue-700">Python</span>
+              <span class="px-3 py-1 border border-blue-300 rounded-full text-sm text-blue-700">Shell</span>
+            </div>
+
+            <div class="flex gap-4">
+              <a href="#" class="btn-code flex items-center gap-1">
+                <img src="assets/images/skills/github.png" alt="GitHub"> Code
+              </a>
+              <a href="#" class="btn-demo">Démo</a>
+              <button class="btn-detail bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">Détails</button>
+            </div>
+          </div>
+
+          <div class="card-back hidden absolute top-0 left-0 w-full h-full p-5 bg-white dark:bg-gray-800 rounded-2xl shadow flex flex-col">
+            <h3 class="text-2xl font-semibold mb-3">Détails du projet</h3>
+            <p class="text-gray-700 dark:text-gray-200 mb-4">
+              Automatisation de tâches répétitives : génération de rapports Excel et envoi automatique par email pour gagner du temps et réduire les erreurs.
+            </p>
+            <button class="btn-back bg-gray-500 text-white px-3 py-1 rounded hover:bg-gray-600 mt-auto">Retour</button>
           </div>
         </div>
 
@@ -400,7 +513,7 @@
   </div>
 </section>
 
-<!-- JS Slider simple -->
+<!-- JS Slider simple + Détails -->
 <script>
 const slider = document.getElementById("projects-slider");
 const nextBtn = document.getElementById("next-project");
@@ -413,7 +526,26 @@ nextBtn.addEventListener("click", () => {
 prevBtn.addEventListener("click", () => {
   slider.scrollBy({ left: -320, behavior: "smooth" });
 });
+
+// Détails back/front
+document.querySelectorAll('.project-card').forEach(card => {
+  const detailBtn = card.querySelector('.btn-detail');
+  const backBtn = card.querySelector('.btn-back');
+  const front = card.querySelector('.card-front');
+  const back = card.querySelector('.card-back');
+
+  detailBtn.addEventListener('click', () => {
+    front.classList.add('hidden');
+    back.classList.remove('hidden');
+  });
+
+  backBtn.addEventListener('click', () => {
+    back.classList.add('hidden');
+    front.classList.remove('hidden');
+  });
+});
 </script>
+
 
 
 <!-- CV -->
@@ -507,7 +639,7 @@ prevBtn.addEventListener("click", () => {
         </a>
 
         <!-- Téléphone -->
-        <a href="tel:+221772986259"
+        <a href="https://wa.me/221772986259"
            class="flex items-center gap-4 p-4 bg-gray-100 dark:bg-gray-700 rounded-xl shadow hover:shadow-md hover:bg-gray-200 dark:hover:bg-gray-600 transition">
           <img src="assets/images/icons/phone.svg" alt="Téléphone" class="h-6 w-6">
           <span>WhatsApp: +221 77 298 62 59</span>
