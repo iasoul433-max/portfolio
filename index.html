@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0"/>
   <title>Soulemane Diallo | Portfolio</title>
 
   <!-- Tailwind CDN -->
@@ -11,256 +11,189 @@
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
+  <!-- Font Awesome pour icônes -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
   <!-- CSS personnalisé -->
   <link rel="stylesheet" href="assets/css/style.css">
   <script>
-  tailwind.config = {
-    darkMode: 'class'
-  }
-</script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          screens: {
+            'xs': '375px',
+          }
+        }
+      }
+    }
+  </script>
 
 </head>
 
-<body class="bg-gray-50 text-gray-800 font-inter dark:bg-gray-900 dark:text-gray-200 transition-colors duration-300">
+<body class="bg-gray-50 text-gray-800 font-inter dark:bg-gray-900 dark:text-gray-200 transition-colors duration-300 overflow-x-hidden">
 
-<!-- NAVBAR -->
-<header class="fixed top-0 w-full bg-white dark:bg-gray-900 shadow z-50">
-  <nav class="w-full px-4 h-16 flex items-center justify-between max-w-7xl mx-auto">
-    
-    <!-- Logo -->
-  <img src="assets/images/logo.svg"
-     alt="Logo Soulemane Diallo"
-     class="logo-custom"
-     onclick="window.location.href = window.location.pathname + '?reload=' + new Date().getTime();">
+  <!-- NAVBAR -->
+  <header class="fixed top-0 w-full bg-white dark:bg-gray-900 shadow z-50">
+    <nav class="w-full px-4 h-16 flex items-center justify-between max-w-7xl mx-auto">
+      
+      <!-- Logo -->
+      <img src="assets/images/logo.svg"
+        alt="Logo Soulemane Diallo"
+        class="logo-custom"
+        onclick="window.location.href = window.location.pathname + '?reload=' + new Date().getTime();">
 
+      <!-- Menu Hamburger pour mobile -->
+      <button id="menu-toggle" class="md:hidden text-gray-700 dark:text-gray-200 text-2xl">
+        <i class="fas fa-bars"></i>
+      </button>
 
-    <!-- Liens -->
-    <div class="hidden md:flex space-x-8 font-medium">
-      <a href="#home" class="nav-link text-gray-700 dark:text-gray-200 hover:text-blue-600">Accueil</a>
-      <a href="#about"class="nav-link text-gray-700 dark:text-gray-200 hover:text-blue-600">À propos</a>
-      <a href="#skills" class="nav-link text-gray-700 dark:text-gray-200 hover:text-blue-600">Compétences</a>
-      <a href="#projects" class="nav-link text-gray-700 dark:text-gray-200 hover:text-blue-600">Projets</a>
-      <a href="#cv" class="nav-link text-gray-700 dark:text-gray-200 hover:text-blue-600">CV</a>
-      <a href="#contact" class="nav-link text-gray-700 dark:text-gray-200 hover:text-blue-600">Contact</a>
-    </div>
+      <!-- Liens pour desktop -->
+      <div class="hidden md:flex space-x-6 lg:space-x-8 font-medium">
+        <a href="#home" class="nav-link text-gray-700 dark:text-gray-200 hover:text-blue-600">Accueil</a>
+        <a href="#about" class="nav-link text-gray-700 dark:text-gray-200 hover:text-blue-600">À propos</a>
+        <a href="#skills" class="nav-link text-gray-700 dark:text-gray-200 hover:text-blue-600">Compétences</a>
+        <a href="#projects" class="nav-link text-gray-700 dark:text-gray-200 hover:text-blue-600">Projets</a>
+        <a href="#cv" class="nav-link text-gray-700 dark:text-gray-200 hover:text-blue-600">CV</a>
+        <a href="#contact" class="nav-link text-gray-700 dark:text-gray-200 hover:text-blue-600">Contact</a>
+      </div>
 
-  </nav>
-  <button id="theme-toggle"
-  class="absolute top-24 right-6 bg-white dark:bg-gray-800 dark:text-gray-200 shadow-md rounded-full p-3 hover:bg-gray-100 dark:hover:bg-gray-700 transition">
-  🌙
-</button>
+    </nav>
 
-</header>
-
-<!-- HERO -->
-<section id="home" class="min-h-screen flex items-center pt-20 bg-gray-50 dark:bg-gray-900">
-
-    
-  <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-
-    <!-- Texte -->
-    <div class="fade-up">
-      <p class="text-blue-600 font-semibold text-lg">Bonjour, je suis</p>
-
-      <h1 class="text-5xl md:text-6xl font-bold mt-3">
-        Soulemane Diallo
-      </h1>
-
-      <p class="text-gray-600 dark:text-gray-300 max-w-2xl">
-  <span id="typing-text" class="border-r-2 border-blue-600 pr-1"></span>
-</p>
-
-  <p class="text-gray-600 dark:text-gray-300 max-w-2xl">
-  Titulaire d’une licence en génie logiciel et actuellement étudiant en troisième année
-  Banque, Assurance et Finance, je développe des solutions numériques adaptées
-  aussi bien aux besoins techniques qu’aux réalités métier.
-</p>
-
-      <div class="mt-8 flex gap-4 flex-wrap">
-        <a href="#projects"
-           class="px-6 py-3 bg-blue-500 text-white rounded-full hover:bg-blue-700 transition">
-           Voir mes projets
-        </a>
-
-      <a href="#contact"
-   class="px-7 py-3 rounded-full
-          bg-emerald-500 dark:bg-emerald-600
-          text-white
-          shadow-[6px_6px_12px_rgba(0,0,0,0.25),_-6px_-6px_12px_rgba(255,255,255,0.25)]
-          dark:shadow-[6px_6px_14px_rgba(0,0,0,0.6),_-6px_-6px_14px_rgba(255,255,255,0.08)]
-          hover:shadow-[inset_4px_4px_8px_rgba(0,0,0,0.25),_inset_-4px_-4px_8px_rgba(255,255,255,0.25)]
-          dark:hover:shadow-[inset_4px_4px_10px_rgba(0,0,0,0.6),_inset_-4px_-4px_10px_rgba(255,255,255,0.1)]
-          transition-all duration-300 active:scale-95">
-  Me contacter
-</a>
-
+    <!-- Menu mobile -->
+    <div id="mobile-menu" class="md:hidden hidden absolute top-16 left-0 w-full bg-white dark:bg-gray-900 shadow-lg z-40">
+      <div class="flex flex-col p-4 space-y-4">
+        <a href="#home" class="nav-link text-gray-700 dark:text-gray-200 hover:text-blue-600 py-2 px-4">Accueil</a>
+        <a href="#about" class="nav-link text-gray-700 dark:text-gray-200 hover:text-blue-600 py-2 px-4">À propos</a>
+        <a href="#skills" class="nav-link text-gray-700 dark:text-gray-200 hover:text-blue-600 py-2 px-4">Compétences</a>
+        <a href="#projects" class="nav-link text-gray-700 dark:text-gray-200 hover:text-blue-600 py-2 px-4">Projets</a>
+        <a href="#cv" class="nav-link text-gray-700 dark:text-gray-200 hover:text-blue-600 py-2 px-4">CV</a>
+        <a href="#contact" class="nav-link text-gray-700 dark:text-gray-200 hover:text-blue-600 py-2 px-4">Contact</a>
       </div>
     </div>
 
-    <!-- Photo / Avatar -->
-    <div class="flex justify-center fade-up delay-1">
-      <div class="avatar-wrapper">
-        <img src="assets/images/Mon_profil-removebg-preview.png"
-             alt="Soulemane Diallo"
-             class="avatar">
+    <button id="theme-toggle"
+      class="fixed top-24 right-6 bg-white dark:bg-gray-800 dark:text-gray-200 shadow-md rounded-full p-3 hover:bg-gray-100 dark:hover:bg-gray-700 transition z-50">
+      🌙
+    </button>
+
+  </header>
+
+  <!-- HERO -->
+  <section id="home" class="min-h-screen flex items-center pt-16 md:pt-20 px-4 sm:px-6 bg-gray-50 dark:bg-gray-900">
+
+    <div class="max-w-7xl mx-auto w-full px-4 md:px-6 grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+
+      <!-- Texte -->
+      <div class="fade-up order-2 md:order-1">
+        <p class="text-blue-600 font-semibold text-base md:text-lg">Bonjour, je suis</p>
+
+        <h1 class="text-3xl xs:text-4xl sm:text-5xl md:text-6xl font-bold mt-3">
+          Soulemane Diallo
+        </h1>
+
+        <p class="text-gray-600 dark:text-gray-300 mt-4 text-sm sm:text-base">
+          <span id="typing-text" class="border-r-2 border-blue-600 pr-1"></span>
+        </p>
+
+        <p class="text-gray-600 dark:text-gray-300 mt-4 max-w-2xl text-sm sm:text-base text-justify">
+          Titulaire d'une licence en génie logiciel et actuellement étudiant en troisième année
+          Banque, Assurance et Finance, je développe des solutions numériques adaptées
+          aussi bien aux besoins techniques qu'aux réalités métier.
+        </p>
+
+        <div class="mt-8 flex flex-col xs:flex-row gap-4 flex-wrap">
+          <a href="#projects"
+            class="px-6 py-3 bg-blue-500 text-white rounded-full hover:bg-blue-700 transition text-center">
+            Voir mes projets
+          </a>
+
+          <a href="#contact"
+            class="px-6 py-3 rounded-full bg-emerald-500 dark:bg-emerald-600 text-white shadow-[6px_6px_12px_rgba(0,0,0,0.25),_-6px_-6px_12px_rgba(255,255,255,0.25)] dark:shadow-[6px_6px_14px_rgba(0,0,0,0.6),_-6px_-6px_14px_rgba(255,255,255,0.08)] hover:shadow-[inset_4px_4px_8px_rgba(0,0,0,0.25),_inset_-4px_-4px_8px_rgba(255,255,255,0.25)] dark:hover:shadow-[inset_4px_4px_10px_rgba(0,0,0,0.6),_inset_-4px_-4px_10px_rgba(255,255,255,0.1)] transition-all duration-300 active:scale-95 text-center">
+            Me contacter
+          </a>
+        </div>
       </div>
+
+      <!-- Photo / Avatar -->
+      <div class="flex justify-center fade-up delay-1 order-1 md:order-2">
+        <div class="avatar-wrapper">
+          <img src="assets/images/Mon_profil-removebg-preview.png"
+              alt="Soulemane Diallo"
+              class="avatar">
+        </div>
+      </div>
+
     </div>
+  </section>
 
-  </div>
-</section>
+  <!-- A PROPOS -->
+<section id="about" class="py-12 md:py-20 bg-slate-100 dark:bg-gray-800 px-4 sm:px-6">
 
-
-<!-- A PROPOS -->
-<section id="about" class="py-20 bg-slate-100 dark:bg-gray-800">
-
-  <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+  <div class="max-w-7xl mx-auto w-full px-4 md:px-6 grid md:grid-cols-2 gap-8 md:gap-12 items-center">
 
     <!-- Image / visuel -->
-    <div class="flex justify-center">
-      <img src="assets/images/profil-removebg-preview.png"
-           alt="Soulemane Diallo"
-           class="about-avatar">
+    <div class="flex justify-center order-2 md:order-1">
+      <div class="relative">
+        <div class="about-avatar-wrapper">
+          <img src="assets/images/profil-removebg-preview.png"
+              alt="Soulemane Diallo"
+              class="about-avatar">
+        </div>
+      </div>
     </div>
 
-    <div>
-  <h2 class="text-4xl font-bold mb-10">
-    À propos de moi
-  </h2>
+    <div class="order-1 md:order-2">
+      <h2 class="text-3xl md:text-4xl font-bold mb-8 md:mb-10">
+        À propos de moi
+      </h2>
 
-  <div class="space-y-6">
+      <div class="space-y-6">
 
-   <!-- PROFIL -->
-<div class="bg-gray-100 dark:bg-gray-800
-            p-6 md:p-8 rounded-2xl
-            shadow-[8px_8px_16px_rgba(0,0,0,0.15),_-8px_-8px_16px_rgba(255,255,255,0.7)]
-            dark:shadow-[8px_8px_18px_rgba(0,0,0,0.6),_-8px_-8px_18px_rgba(255,255,255,0.08)]
-            hover:shadow-[inset_6px_6px_12px_rgba(0,0,0,0.15),_inset_-6px_-6px_12px_rgba(255,255,255,0.7)]
-            dark:hover:shadow-[inset_6px_6px_14px_rgba(0,0,0,0.6),_inset_-6px_-6px_14px_rgba(255,255,255,0.08)]
-            transition-all duration-300">
+        <!-- PROFIL -->
+        <div class="bg-gray-100 dark:bg-gray-800 p-5 md:p-8 rounded-2xl shadow-[8px_8px_16px_rgba(0,0,0,0.15),_-8px_-8px_16px_rgba(255,255,255,0.7)] dark:shadow-[8px_8px_18px_rgba(0,0,0,0.6),_-8px_-8px_18px_rgba(255,255,255,0.08)] hover:shadow-[inset_6px_6px_12px_rgba(0,0,0,0.15),_inset_-6px_-6px_12px_rgba(255,255,255,0.7)] dark:hover:shadow-[inset_6px_6px_14px_rgba(0,0,0,0.6),_inset_-6px_-6px_14px_rgba(255,255,255,0.08)] transition-all duration-300">
 
-  <h3 class="text-2xl font-semibold mb-4 text-blue-600">
-    Profil
-  </h3>
+          <h3 class="text-xl md:text-2xl font-semibold mb-4 text-blue-600">
+            Profil
+          </h3>
 
-  <p class="text-gray-700 dark:text-gray-300 text-justify leading-relaxed">
-    Développeur web titulaire d’une <strong>Licence en Génie Logiciel</strong>,
-    je poursuis également une formation en <strong>Banque, Assurance et Finance (BAF)</strong>.
-    Cette double compétence me permet de concevoir des solutions numériques
-    adaptées aux enjeux métiers et aux réalités économiques.
-  </p>
-</div>
+          <p class="text-gray-700 dark:text-gray-300 text-justify leading-relaxed text-sm md:text-base">
+            Développeur web titulaire d'une <strong>Licence en Génie Logiciel</strong>,
+            je poursuis également une formation en <strong>Banque, Assurance et Finance (BAF)</strong>.
+            Cette double compétence me permet de concevoir des solutions numériques
+            adaptées aux enjeux métiers et aux réalités économiques.
+          </p>
+        </div>
 
-<!-- EXPERTISE -->
-<div class="bg-gray-100 dark:bg-gray-800
-            p-6 md:p-8 rounded-2xl
-            shadow-[8px_8px_16px_rgba(0,0,0,0.15),_-8px_-8px_16px_rgba(255,255,255,0.7)]
-            dark:shadow-[8px_8px_18px_rgba(0,0,0,0.6),_-8px_-8px_18px_rgba(255,255,255,0.08)]
-            hover:shadow-[inset_6px_6px_12px_rgba(0,0,0,0.15),_inset_-6px_-6px_12px_rgba(255,255,255,0.7)]
-            dark:hover:shadow-[inset_6px_6px_14px_rgba(0,0,0,0.6),_inset_-6px_-6px_14px_rgba(255,255,255,0.08)]
-            transition-all duration-300">
+        <!-- EXPERTISE -->
+        <div class="bg-gray-100 dark:bg-gray-800 p-5 md:p-8 rounded-2xl shadow-[8px_8px_16px_rgba(0,0,0,0.15),_-8px_-8px_16px_rgba(255,255,255,0.7)] dark:shadow-[8px_8px_18px_rgba(0,0,0,0.6),_-8px_-8px_18px_rgba(255,255,255,0.08)] hover:shadow-[inset_6px_6px_12px_rgba(0,0,0,0.15),_inset_-6px_-6px_12px_rgba(255,255,255,0.7)] dark:hover:shadow-[inset_6px_6px_14px_rgba(0,0,0,0.6),_inset_-6px_-6px_14px_rgba(255,255,255,0.08)] transition-all duration-300">
 
-  <h3 class="text-2xl font-semibold mb-4 text-blue-600">
-    Expertise & compétences
-  </h3>
+          <h3 class="text-xl md:text-2xl font-semibold mb-4 text-blue-600">
+            Expertise & compétences
+          </h3>
 
-  <p class="text-gray-700 dark:text-gray-300 text-justify leading-relaxed">
-    J’interviens sur la conception d’applications web modernes,
-    performantes et sécurisées, en intégrant des notions clés
-    telles que la gestion des données, les processus financiers,
-    la relation client et l’optimisation des opérations.
-  </p>
-</div>
+          <p class="text-gray-700 dark:text-gray-300 text-justify leading-relaxed text-sm md:text-base">
+            J'interviens sur la conception d'applications web modernes,
+            performantes et sécurisées, en intégrant des notions clés
+            telles que la gestion des données, les processus financiers,
+            la relation client et l'optimisation des opérations.
+          </p>
+        </div>
 
-<!-- OBJECTIFS -->
-<div class="bg-gray-100 dark:bg-gray-800
-            p-6 md:p-8 rounded-2xl
-            shadow-[8px_8px_16px_rgba(0,0,0,0.15),_-8px_-8px_16px_rgba(255,255,255,0.7)]
-            dark:shadow-[8px_8px_18px_rgba(0,0,0,0.6),_-8px_-8px_18px_rgba(255,255,255,0.08)]
-            hover:shadow-[inset_6px_6px_12px_rgba(0,0,0,0.15),_inset_-6px_-6px_12px_rgba(255,255,255,0.7)]
-            dark:hover:shadow-[inset_6px_6px_14px_rgba(0,0,0,0.6),_inset_-6px_-6px_14px_rgba(255,255,255,0.08)]
-            transition-all duration-300">
+        <!-- OBJECTIFS -->
+        <div class="bg-gray-100 dark:bg-gray-800 p-5 md:p-8 rounded-2xl shadow-[8px_8px_16px_rgba(0,0,0,0.15),_-8px_-8px_16px_rgba(255,255,255,0.7)] dark:shadow-[8px_8px_18px_rgba(0,0,0,0.6),_-8px_-8px_18px_rgba(255,255,255,0.08)] hover:shadow-[inset_6px_6px_12px rgba(0,0,0,0.15),_inset_-6px_-6px_12px_rgba(255,255,255,0.7)] dark:hover:shadow-[inset_6px_6px_14px_rgba(0,0,0,0.6),_inset_-6px_-6px_14px_rgba(255,255,255,0.08)] transition-all duration-300">
 
-  <h3 class="text-2xl font-semibold mb-4 text-blue-600">
-    Objectifs professionnels
-  </h3>
+          <h3 class="text-xl md:text-2xl font-semibold mb-4 text-blue-600">
+            Objectifs professionnels
+          </h3>
 
-  <p class="text-gray-700 dark:text-gray-300 text-justify leading-relaxed">
-    Curieux, rigoureux et orienté solution, je souhaite participer
-    à des projets variés alliant technologie et métier, notamment
-    dans le développement web et la digitalisation des services
-    bancaires, financiers et assurantiels.
-  </p>
-</div>
-
-
-  </div>
-</div>
-
-
-  </div>
-</section>
-
-<!-- COMPÉTENCES -->
-<section id="skills" class="py-20 bg-white dark:bg-gray-900 overflow-hidden">
-  <div class="max-w-6xl mx-auto px-6">
-
-    <h2 class="text-4xl font-bold text-center mb-4">
-      Compétences
-    </h2>
-
-    <p class="text-center text-gray-600 mb-12">
-      Technologies & outils que j’utilise dans mes projets IT et métiers
-    </p>
-
-    <!-- Slider -->
-    <div class="skills-slider">
-      <div class="skills-track">
-
-        <!-- IT -->
-        <div class="skill-logo"><img src="assets/images/skills/html.png" alt="HTML"></div>
-        <div class="skill-logo"><img src="assets/images/skills/css.png" alt="CSS"></div>
-        <div class="skill-logo"><img src="assets/images/skills/js.png" alt="JavaScript"></div>
-        <div class="skill-logo"><img src="assets/images/skills/python.png" alt="Python"></div>
-        <div class="skill-logo"><img src="assets/images/skills/flask.png" alt="Flask"></div>
-        <div class="skill-logo"><img src="assets/images/skills/django.png" alt="Django"></div>
-        <div class="skill-logo"><img src="assets/images/skills/mysql.png" alt="MySQL"></div>
-        <div class="skill-logo"><img src="assets/images/skills/git.png" alt="Git"></div>
-        <div class="skill-logo"><img src="assets/images/skills/github.png" alt="GitHub"></div>
-        
-        <!-- Bureautique & Digital -->
-        <div class="skill-logo"><img src="assets/images/skills/excel.png" alt="Excel"></div>
-        <div class="skill-logo"><img src="assets/images/skills/powerpoint.png" alt="PowerPoint"></div>
-        <div class="skill-logo"><img src="assets/images/skills/outlook.png" alt="Outlook"></div>
-        <div class="skill-logo"><img src="assets/images/skills/wordpress.png" alt="WordPress"></div>
-        <div class="skill-logo"><img src="assets/images/skills/shell.png" alt="Shell"></div>
-
-          <div class="skill-logo"><img src="assets/images/skills/bi.png" alt="PowerBi"></div>
-          <div class="skill-logo"><img src="assets/images/skills/xml.png" alt="xml"></div>
-           <div class="skill-logo"><img src="assets/images/skills/java.png" alt="Java"></div>
-            <div class="skill-logo"><img src="assets/images/skills/angular.png" alt="Angular"></div>
-             <div class="skill-logo"><img src="assets/images/skills/netbeans.png" alt="Netbeans"></div>
-
-        <!-- DUPLICATION POUR SCROLL INFINI -->
-        <!-- (copie exacte) -->
-        <div class="skill-logo"><img src="assets/images/skills/html.png"></div>
-        <div class="skill-logo"><img src="assets/images/skills/css.png"></div>
-        <div class="skill-logo"><img src="assets/images/skills/js.png"></div>
-        <div class="skill-logo"><img src="assets/images/skills/python.png"></div>
-        <div class="skill-logo"><img src="assets/images/skills/flask.png"></div>
-        <div class="skill-logo"><img src="assets/images/skills/django.png"></div>
-        <div class="skill-logo"><img src="assets/images/skills/mysql.png"></div>
-        <div class="skill-logo"><img src="assets/images/skills/git.png"></div>
-        <div class="skill-logo"><img src="assets/images/skills/github.png"></div>
-        <div class="skill-logo"><img src="assets/images/skills/excel.png"></div>
-        <div class="skill-logo"><img src="assets/images/skills/powerpoint.png"></div>
-        <div class="skill-logo"><img src="assets/images/skills/outlook.png"></div>
-        <div class="skill-logo"><img src="assets/images/skills/wordpress.png"></div>
-        <div class="skill-logo"><img src="assets/images/skills/shell.png"></div>
-          <div class="skill-logo"><img src="assets/images/skills/bi.png" alt="PowerBi"></div>
-          <div class="skill-logo"><img src="assets/images/skills/xml.png" alt="xml"></div>
-           <div class="skill-logo"><img src="assets/images/skills/java.png" alt="Java"></div>
-            <div class="skill-logo"><img src="assets/images/skills/angular.png" alt="Angular"></div>
-             <div class="skill-logo"><img src="assets/images/skills/netbeans.png" alt="Netbeans"></div>
+          <p class="text-gray-700 dark:text-gray-300 text-justify leading-relaxed text-sm md:text-base">
+            Curieux, rigoureux et orienté solution, je souhaite participer
+            à des projets variés alliant technologie et métier, notamment
+            dans le développement web et la digitalisation des services
+            bancaires, financiers et assurantiels.
+          </p>
+        </div>
 
       </div>
     </div>
@@ -268,476 +201,909 @@
   </div>
 </section>
 
-<!-- PROJETS -->
-<section id="projects" class="py-20 bg-gray-50 dark:bg-gray-800">
-  <div class="max-w-6xl mx-auto px-6">
+  <!-- COMPÉTENCES -->
+  <section id="skills" class="py-12 md:py-20 bg-white dark:bg-gray-900 overflow-hidden px-4 sm:px-6">
+    <div class="max-w-7xl mx-auto w-full px-4 md:px-6">
 
-    <h2 class="text-4xl font-bold text-center mb-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">
+        Compétences
+      </h2>
+
+      <p class="text-center text-gray-600 mb-8 md:mb-12 text-sm md:text-base">
+        Technologies & outils que j'utilise dans mes projets IT et métiers
+      </p>
+
+      <!-- Slider avec flèches -->
+      <div class="relative skills-slider-container">
+        
+        <!-- Flèche gauche -->
+        <button id="skills-prev" class="skills-nav-btn left-0">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        
+        <!-- Slider -->
+        <div class="skills-slider overflow-hidden">
+          <div class="skills-track">
+            
+            <!-- Compétence 1 - HTML -->
+            <div class="skill-item">
+              <div class="skill-logo">
+                <img src="assets/images/skills/html.png" alt="HTML">
+              </div>
+              <p class="skill-name">HTML</p>
+            </div>
+            
+            <!-- Compétence 2 - CSS -->
+            <div class="skill-item">
+              <div class="skill-logo">
+                <img src="assets/images/skills/css.png" alt="CSS">
+              </div>
+              <p class="skill-name">CSS</p>
+            </div>
+            
+            <!-- Compétence 3 - JavaScript -->
+            <div class="skill-item">
+              <div class="skill-logo">
+                <img src="assets/images/skills/js.png" alt="JavaScript">
+              </div>
+              <p class="skill-name">JavaScript</p>
+            </div>
+            
+            <!-- Compétence 4 - Python -->
+            <div class="skill-item">
+              <div class="skill-logo">
+                <img src="assets/images/skills/python.png" alt="Python">
+              </div>
+              <p class="skill-name">Python</p>
+            </div>
+            
+            <!-- Compétence 5 - Flask -->
+            <div class="skill-item">
+              <div class="skill-logo">
+                <img src="assets/images/skills/flask.png" alt="Flask">
+              </div>
+              <p class="skill-name">Flask</p>
+            </div>
+            
+            <!-- Compétence 6 - Django -->
+            <div class="skill-item">
+              <div class="skill-logo">
+                <img src="assets/images/skills/django.png" alt="Django">
+              </div>
+              <p class="skill-name">Django</p>
+            </div>
+            
+            <!-- Compétence 7 - MySQL -->
+            <div class="skill-item">
+              <div class="skill-logo">
+                <img src="assets/images/skills/mysql.png" alt="MySQL">
+              </div>
+              <p class="skill-name">MySQL</p>
+            </div>
+            
+            <!-- Compétence 8 - Git -->
+            <div class="skill-item">
+              <div class="skill-logo">
+                <img src="assets/images/skills/git.png" alt="Git">
+              </div>
+              <p class="skill-name">Git</p>
+            </div>
+            
+            <!-- Compétence 9 - GitHub -->
+            <div class="skill-item">
+              <div class="skill-logo">
+                <img src="assets/images/skills/github.png" alt="GitHub">
+              </div>
+              <p class="skill-name">GitHub</p>
+            </div>
+            
+            <!-- Compétence 10 - Excel -->
+            <div class="skill-item">
+              <div class="skill-logo">
+                <img src="assets/images/skills/excel.png" alt="Excel">
+              </div>
+              <p class="skill-name">Excel</p>
+            </div>
+            
+            <!-- Compétence 11 - PowerPoint -->
+            <div class="skill-item">
+              <div class="skill-logo">
+                <img src="assets/images/skills/powerpoint.png" alt="PowerPoint">
+              </div>
+              <p class="skill-name">PowerPoint</p>
+            </div>
+            
+            <!-- Compétence 12 - Outlook -->
+            <div class="skill-item">
+              <div class="skill-logo">
+                <img src="assets/images/skills/outlook.png" alt="Outlook">
+              </div>
+              <p class="skill-name">Outlook</p>
+            </div>
+            
+            <!-- Compétence 13 - WordPress -->
+            <div class="skill-item">
+              <div class="skill-logo">
+                <img src="assets/images/skills/wordpress.png" alt="WordPress">
+              </div>
+              <p class="skill-name">WordPress</p>
+            </div>
+            
+            <!-- Compétence 14 - Shell -->
+            <div class="skill-item">
+              <div class="skill-logo">
+                <img src="assets/images/skills/shell.png" alt="Shell">
+              </div>
+              <p class="skill-name">Shell</p>
+            </div>
+            
+            <!-- Compétence 15 - Power BI -->
+            <div class="skill-item">
+              <div class="skill-logo">
+                <img src="assets/images/skills/bi.png" alt="Power BI">
+              </div>
+              <p class="skill-name">Power BI</p>
+            </div>
+            
+            <!-- Compétence 16 - XML -->
+            <div class="skill-item">
+              <div class="skill-logo">
+                <img src="assets/images/skills/xml.png" alt="XML">
+              </div>
+              <p class="skill-name">XML</p>
+            </div>
+            
+            <!-- Compétence 17 - Java -->
+            <div class="skill-item">
+              <div class="skill-logo">
+                <img src="assets/images/skills/java.png" alt="Java">
+              </div>
+              <p class="skill-name">Java</p>
+            </div>
+            
+            <!-- Compétence 18 - Angular -->
+            <div class="skill-item">
+              <div class="skill-logo">
+                <img src="assets/images/skills/angular.png" alt="Angular">
+              </div>
+              <p class="skill-name">Angular</p>
+            </div>
+            
+            <!-- Compétence 19 - NetBeans -->
+            <div class="skill-item">
+              <div class="skill-logo">
+                <img src="assets/images/skills/netbeans.png" alt="NetBeans">
+              </div>
+              <p class="skill-name">NetBeans</p>
+            </div>
+
+          </div>
+        </div>
+        
+        <!-- Flèche droite -->
+        <button id="skills-next" class="skills-nav-btn right-0">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PROJETS -->
+<section id="projects" class="py-12 md:py-20 bg-gray-50 dark:bg-gray-800 px-4 sm:px-6">
+  <div class="max-w-7xl mx-auto w-full px-4 md:px-6">
+
+    <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">
       Projets réalisés
     </h2>
 
-    <p class="text-center text-gray-600 mb-4">
+    <p class="text-center text-gray-600 mb-4 text-sm md:text-base">
       Quelques projets illustrant mes compétences techniques et métiers
     </p>
 
     <!-- Message en rouge -->
-    <p class="text-center text-red-600 mb-8 font-semibold">
-      ⚠ Cours d’implémentation, consultez les détails pour un aperçu de chaque projet
+    <p class="text-center text-red-600 mb-8 font-semibold text-sm md:text-base">
+      ⚠ Cours d'implémentation, consultez les détails pour un aperçu de chaque projet
     </p>
 
     <div class="relative">
 
-      <!-- Flèches -->
-      <button id="prev-project" class="absolute left-0 top-1/2 -translate-y-1/2 bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-200 p-2 rounded-full shadow hover:bg-gray-100 dark:hover:bg-gray-600 z-10">
+      <!-- Flèches visibles sur tous les écrans -->
+      <button id="prev-project" class="absolute left-0 top-1/2 -translate-y-1/2 bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-200 p-3 rounded-full shadow hover:bg-gray-100 dark:hover:bg-gray-600 z-10">
         ◀
       </button>
-      <button id="next-project" class="absolute right-0 top-1/2 -translate-y-1/2 bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-200 p-2 rounded-full shadow hover:bg-gray-100 dark:hover:bg-gray-600 z-10">
+      <button id="next-project" class="absolute right-0 top-1/2 -translate-y-1/2 bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-200 p-3 rounded-full shadow hover:bg-gray-100 dark:hover:bg-gray-600 z-10">
         ▶
       </button>
 
-      <!-- Slider -->
-      <div id="projects-slider" class="flex gap-8 overflow-x-auto scroll-smooth pb-4">
-
+      <!-- Slider de projets -->
+      <div id="projects-slider" class="flex gap-6 md:gap-8 overflow-x-auto scroll-smooth pb-8 px-4 md:px-0 hide-scrollbar">
+        
         <!-- Projet 1 -->
-        <div class="project-card min-w-[300px] flex-shrink-0 p-5 bg-white dark:bg-gray-800 rounded-2xl shadow hover:shadow-md transition relative">
-          <div class="card-front">
-            <div class="project-image">
-              <img src="assets/images/projects/hotel.png" alt="Application de gestion hôtelière" class="rounded-xl">
-            </div>
-            <h3 class="text-2xl font-semibold mt-4 mb-2">Application de gestion hôtelière</h3>
-            <p class="text-gray-600 mb-3">
-              Gestion des réservations, clients et opérations internes d’un hôtel.
-            </p>
+        <div class="project-slide">
+          <div class="project-card-compact bg-white dark:bg-gray-800 rounded-2xl shadow hover:shadow-md transition relative overflow-hidden">
+            <div class="card-front flex flex-col h-full">
+              <div class="project-image-compact">
+                <img src="assets/images/projects/hotel.png" alt="Application de gestion hôtelière" class="rounded-t-2xl">
+              </div>
+              <div class="flex flex-col flex-grow p-5">
+                <h3 class="text-xl font-semibold mb-2">Application de gestion hôtelière</h3>
+                <p class="text-gray-600 dark:text-gray-300 mb-3 text-sm flex-grow">
+                  Gestion des réservations, clients et opérations internes d'un hôtel.
+                </p>
 
-            <div class="flex flex-wrap gap-2 mb-5">
-              <span class="px-3 py-1 border border-blue-300 rounded-full text-sm text-blue-700">HTML</span>
-              <span class="px-3 py-1 border border-blue-300 rounded-full text-sm text-blue-700">CSS</span>
-              <span class="px-3 py-1 border border-blue-300 rounded-full text-sm text-blue-700">JavaScript</span>
-              <span class="px-3 py-1 border border-blue-300 rounded-full text-sm text-blue-700">Python</span>
-              <span class="px-3 py-1 border border-blue-300 rounded-full text-sm text-blue-700">Django</span>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span class="px-2 py-1 border border-blue-300 rounded-full text-xs text-blue-700 dark:text-blue-300">HTML</span>
+                  <span class="px-2 py-1 border border-blue-300 rounded-full text-xs text-blue-700 dark:text-blue-300">CSS</span>
+                  <span class="px-2 py-1 border border-blue-300 rounded-full text-xs text-blue-700 dark:text-blue-300">JavaScript</span>
+                  <span class="px-2 py-1 border border-blue-300 rounded-full text-xs text-blue-700 dark:text-blue-300">Python</span>
+                  <span class="px-2 py-1 border border-blue-300 rounded-full text-xs text-blue-700 dark:text-blue-300">Django</span>
+                </div>
+
+                <div class="flex gap-3 flex-wrap mt-auto">
+                  <a href="#" class="btn-code-compact flex items-center gap-1 text-xs">
+                    <img src="assets/images/skills/github.png" alt="GitHub" class="w-3 h-3"> Code
+                  </a>
+                  <a href="#" class="btn-demo-compact text-xs">Démo</a>
+                  <button class="btn-detail bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600 text-xs">Détails</button>
+                </div>
+              </div>
             </div>
 
-            <div class="flex gap-4">
-              <a href="#" class="btn-code flex items-center gap-1">
-                <img src="assets/images/skills/github.png" alt="GitHub"> Code
-              </a>
-              <a href="#" class="btn-demo">Démo</a>
-              <button class="btn-detail bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">Détails</button>
+            <div class="card-back hidden absolute top-0 left-0 w-full h-full bg-white dark:bg-gray-800 rounded-2xl shadow flex flex-col">
+              <div class="p-5 flex-grow">
+                <h3 class="text-xl font-semibold mb-3">Détails du projet</h3>
+                <p class="text-gray-700 dark:text-gray-200 mb-4 text-sm">
+                  Ce projet permet de gérer un hôtel avec réservation en ligne, suivi des chambres, facturation et statistiques. Backend en Django, frontend responsive HTML/CSS/JS.
+                </p>
+              </div>
+              <div class="p-5">
+                <button class="btn-back bg-gray-500 text-white px-3 py-1 rounded hover:bg-gray-600 w-full text-sm">Retour</button>
+              </div>
             </div>
-          </div>
-
-          <div class="card-back hidden absolute top-0 left-0 w-full h-full p-5 bg-white dark:bg-gray-800 rounded-2xl shadow flex flex-col">
-            <h3 class="text-2xl font-semibold mb-3">Détails du projet</h3>
-            <p class="text-gray-700 dark:text-gray-200 mb-4">
-              Ce projet permet de gérer un hôtel avec réservation en ligne, suivi des chambres, facturation et statistiques. Backend en Django, frontend responsive HTML/CSS/JS.
-            </p>
-            <button class="btn-back bg-gray-500 text-white px-3 py-1 rounded hover:bg-gray-600 mt-auto">Retour</button>
           </div>
         </div>
 
         <!-- Projet 2 -->
-        <div class="project-card min-w-[300px] flex-shrink-0 p-5 bg-white dark:bg-gray-800 rounded-2xl shadow hover:shadow-md transition relative">
-          <div class="card-front">
-            <div class="project-image">
-              <img src="assets/images/projects/api.png" alt="API de réservation" class="rounded-xl">
-            </div>
-            <h3 class="text-2xl font-semibold mt-4 mb-2">API de réservation</h3>
-            <p class="text-gray-600 mb-3">
-              API RESTful pour gérer les réservations d’hôtels et disponibilités en temps réel.
-            </p>
+        <div class="project-slide">
+          <div class="project-card-compact bg-white dark:bg-gray-800 rounded-2xl shadow hover:shadow-md transition relative overflow-hidden">
+            <div class="card-front flex flex-col h-full">
+              <div class="project-image-compact">
+                <img src="assets/images/projects/api.png" alt="API de réservation" class="rounded-t-2xl">
+              </div>
+              <div class="flex flex-col flex-grow p-5">
+                <h3 class="text-xl font-semibold mb-2">API de réservation</h3>
+                <p class="text-gray-600 dark:text-gray-300 mb-3 text-sm flex-grow">
+                  API RESTful pour gérer les réservations d'hôtels et disponibilités en temps réel.
+                </p>
 
-            <div class="flex flex-wrap gap-2 mb-5">
-              <span class="px-3 py-1 border border-blue-300 rounded-full text-sm text-blue-700">Python</span>
-              <span class="px-3 py-1 border border-blue-300 rounded-full text-sm text-blue-700">Flask</span>
-              <span class="px-3 py-1 border border-blue-300 rounded-full text-sm text-blue-700">MySQL</span>
-              <span class="px-3 py-1 border border-blue-300 rounded-full text-sm text-blue-700">REST API</span>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span class="px-2 py-1 border border-blue-300 rounded-full text-xs text-blue-700 dark:text-blue-300">Python</span>
+                  <span class="px-2 py-1 border border-blue-300 rounded-full text-xs text-blue-700 dark:text-blue-300">Flask</span>
+                  <span class="px-2 py-1 border border-blue-300 rounded-full text-xs text-blue-700 dark:text-blue-300">MySQL</span>
+                  <span class="px-2 py-1 border border-blue-300 rounded-full text-xs text-blue-700 dark:text-blue-300">REST API</span>
+                </div>
+
+                <div class="flex gap-3 flex-wrap mt-auto">
+                  <a href="#" class="btn-code-compact flex items-center gap-1 text-xs">
+                    <img src="assets/images/skills/github.png" alt="GitHub" class="w-3 h-3"> Code
+                  </a>
+                  <a href="#" class="btn-demo-compact text-xs">Démo</a>
+                  <button class="btn-detail bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600 text-xs">Détails</button>
+                </div>
+              </div>
             </div>
 
-            <div class="flex gap-4">
-              <a href="#" class="btn-code flex items-center gap-1">
-                <img src="assets/images/skills/github.png" alt="GitHub"> Code
-              </a>
-              <a href="#" class="btn-demo">Démo</a>
-              <button class="btn-detail bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">Détails</button>
+            <div class="card-back hidden absolute top-0 left-0 w-full h-full bg-white dark:bg-gray-800 rounded-2xl shadow flex flex-col">
+              <div class="p-5 flex-grow">
+                <h3 class="text-xl font-semibold mb-3">Détails du projet</h3>
+                <p class="text-gray-700 dark:text-gray-200 mb-4 text-sm">
+                  Création d'une API sécurisée permettant d'enregistrer et suivre les réservations. Comprend authentification, endpoints pour les clients et statistiques pour l'hôtel.
+                </p>
+              </div>
+              <div class="p-5">
+                <button class="btn-back bg-gray-500 text-white px-3 py-1 rounded hover:bg-gray-600 w-full text-sm">Retour</button>
+              </div>
             </div>
-          </div>
-
-          <div class="card-back hidden absolute top-0 left-0 w-full h-full p-5 bg-white dark:bg-gray-800 rounded-2xl shadow flex flex-col">
-            <h3 class="text-2xl font-semibold mb-3">Détails du projet</h3>
-            <p class="text-gray-700 dark:text-gray-200 mb-4">
-              Création d'une API sécurisée permettant d’enregistrer et suivre les réservations. Comprend authentification, endpoints pour les clients et statistiques pour l’hôtel.
-            </p>
-            <button class="btn-back bg-gray-500 text-white px-3 py-1 rounded hover:bg-gray-600 mt-auto">Retour</button>
           </div>
         </div>
 
         <!-- Projet 3 -->
-        <div class="project-card min-w-[300px] flex-shrink-0 p-5 bg-white dark:bg-gray-800 rounded-2xl shadow hover:shadow-md transition relative">
-          <div class="card-front">
-            <div class="project-image">
-              <img src="assets/images/projects/folio.png" alt="Portfolio personnel" class="rounded-xl">
-            </div>
-            <h3 class="text-2xl font-semibold mt-4 mb-2">Portfolio personnel</h3>
-            <p class="text-gray-600 mb-3">
-              Portfolio responsive mettant en avant mon profil, mes compétences et projets.
-            </p>
+        <div class="project-slide">
+          <div class="project-card-compact bg-white dark:bg-gray-800 rounded-2xl shadow hover:shadow-md transition relative overflow-hidden">
+            <div class="card-front flex flex-col h-full">
+              <div class="project-image-compact">
+                <img src="assets/images/projects/folio.png" alt="Portfolio personnel" class="rounded-t-2xl">
+              </div>
+              <div class="flex flex-col flex-grow p-5">
+                <h3 class="text-xl font-semibold mb-2">Portfolio personnel</h3>
+                <p class="text-gray-600 dark:text-gray-300 mb-3 text-sm flex-grow">
+                  Portfolio responsive mettant en avant mon profil, mes compétences et projets.
+                </p>
 
-            <div class="flex flex-wrap gap-2 mb-5">
-              <span class="px-3 py-1 border border-blue-300 rounded-full text-sm text-blue-700">HTML</span>
-              <span class="px-3 py-1 border border-blue-300 rounded-full text-sm text-blue-700">CSS</span>
-              <span class="px-3 py-1 border border-blue-300 rounded-full text-sm text-blue-700">JavaScript</span>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span class="px-2 py-1 border border-blue-300 rounded-full text-xs text-blue-700 dark:text-blue-300">HTML</span>
+                  <span class="px-2 py-1 border border-blue-300 rounded-full text-xs text-blue-700 dark:text-blue-300">CSS</span>
+                  <span class="px-2 py-1 border border-blue-300 rounded-full text-xs text-blue-700 dark:text-blue-300">JavaScript</span>
+                </div>
+
+                <div class="flex gap-3 flex-wrap mt-auto">
+                  <a href="#" class="btn-code-compact flex items-center gap-1 text-xs">
+                    <img src="assets/images/skills/github.png" alt="GitHub" class="w-3 h-3"> Code
+                  </a>
+                  <a href="#" class="btn-demo-compact text-xs">Démo</a>
+                  <button class="btn-detail bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600 text-xs">Détails</button>
+                </div>
+              </div>
             </div>
 
-            <div class="flex gap-4">
-              <a href="#" class="btn-code flex items-center gap-1">
-                <img src="assets/images/skills/github.png" alt="GitHub"> Code
-              </a>
-              <a href="#" class="btn-demo">Démo</a>
-              <button class="btn-detail bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">Détails</button>
+            <div class="card-back hidden absolute top-0 left-0 w-full h-full bg-white dark:bg-gray-800 rounded-2xl shadow flex flex-col">
+              <div class="p-5 flex-grow">
+                <h3 class="text-xl font-semibold mb-3">Détails du projet</h3>
+                <p class="text-gray-700 dark:text-gray-200 mb-4 text-sm">
+                  Portfolio créé pour centraliser mes compétences et projets, avec responsive design, animations simples et navigation fluide.
+                </p>
+              </div>
+              <div class="p-5">
+                <button class="btn-back bg-gray-500 text-white px-3 py-1 rounded hover:bg-gray-600 w-full text-sm">Retour</button>
+              </div>
             </div>
-          </div>
-
-          <div class="card-back hidden absolute top-0 left-0 w-full h-full p-5 bg-white dark:bg-gray-800 rounded-2xl shadow flex flex-col">
-            <h3 class="text-2xl font-semibold mb-3">Détails du projet</h3>
-            <p class="text-gray-700 dark:text-gray-200 mb-4">
-              Portfolio créé pour centraliser mes compétences et projets, avec responsive design, animations simples et navigation fluide.
-            </p>
-            <button class="btn-back bg-gray-500 text-white px-3 py-1 rounded hover:bg-gray-600 mt-auto">Retour</button>
           </div>
         </div>
 
         <!-- Projet 4 -->
-        <div class="project-card min-w-[300px] flex-shrink-0 p-5 bg-white dark:bg-gray-800 rounded-2xl shadow hover:shadow-md transition relative">
-          <div class="card-front">
-            <div class="project-image">
-              <img src="assets/images/projects/excel-dashboard.png" alt="Dashboard Excel" class="rounded-xl">
-            </div>
-            <h3 class="text-2xl font-semibold mt-4 mb-2">Dashboard Excel & BI</h3>
-            <p class="text-gray-600 mb-3">
-              Tableau de bord interactif pour visualiser des données financières et opérationnelles.
-            </p>
+        <div class="project-slide">
+          <div class="project-card-compact bg-white dark:bg-gray-800 rounded-2xl shadow hover:shadow-md transition relative overflow-hidden">
+            <div class="card-front flex flex-col h-full">
+              <div class="project-image-compact">
+                <img src="assets/images/projects/excel-dashboard.png" alt="Dashboard Excel" class="rounded-t-2xl">
+              </div>
+              <div class="flex flex-col flex-grow p-5">
+                <h3 class="text-xl font-semibold mb-2">Dashboard Excel & BI</h3>
+                <p class="text-gray-600 dark:text-gray-300 mb-3 text-sm flex-grow">
+                  Tableau de bord interactif pour visualiser des données financières et opérationnelles.
+                </p>
 
-            <div class="flex flex-wrap gap-2 mb-5">
-              <span class="px-3 py-1 border border-blue-300 rounded-full text-sm text-blue-700">Excel</span>
-              <span class="px-3 py-1 border border-blue-300 rounded-full text-sm text-blue-700">Power BI</span>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span class="px-2 py-1 border border-blue-300 rounded-full text-xs text-blue-700 dark:text-blue-300">Excel</span>
+                  <span class="px-2 py-1 border border-blue-300 rounded-full text-xs text-blue-700 dark:text-blue-300">Power BI</span>
+                </div>
+
+                <div class="flex gap-3 flex-wrap mt-auto">
+                  <a href="#" class="btn-code-compact flex items-center gap-1 text-xs">
+                    <img src="assets/images/skills/github.png" alt="GitHub" class="w-3 h-3"> Code
+                  </a>
+                  <a href="#" class="btn-demo-compact text-xs">Démo</a>
+                  <button class="btn-detail bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600 text-xs">Détails</button>
+                </div>
+              </div>
             </div>
 
-            <div class="flex gap-4">
-              <a href="#" class="btn-code flex items-center gap-1">
-                <img src="assets/images/skills/github.png" alt="GitHub"> Code
-              </a>
-              <a href="#" class="btn-demo">Démo</a>
-              <button class="btn-detail bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">Détails</button>
+            <div class="card-back hidden absolute top-0 left-0 w-full h-full bg-white dark:bg-gray-800 rounded-2xl shadow flex flex-col">
+              <div class="p-5 flex-grow">
+                <h3 class="text-xl font-semibold mb-3">Détails du projet</h3>
+                <p class="text-gray-700 dark:text-gray-200 mb-4 text-sm">
+                  Dashboard interactif pour suivre les ventes, les réservations et indicateurs financiers avec graphiques dynamiques.
+                </p>
+              </div>
+              <div class="p-5">
+                <button class="btn-back bg-gray-500 text-white px-3 py-1 rounded hover:bg-gray-600 w-full text-sm">Retour</button>
+              </div>
             </div>
-          </div>
-
-          <div class="card-back hidden absolute top-0 left-0 w-full h-full p-5 bg-white dark:bg-gray-800 rounded-2xl shadow flex flex-col">
-            <h3 class="text-2xl font-semibold mb-3">Détails du projet</h3>
-            <p class="text-gray-700 dark:text-gray-200 mb-4">
-              Dashboard interactif pour suivre les ventes, les réservations et indicateurs financiers avec graphiques dynamiques.
-            </p>
-            <button class="btn-back bg-gray-500 text-white px-3 py-1 rounded hover:bg-gray-600 mt-auto">Retour</button>
           </div>
         </div>
 
         <!-- Projet 5 -->
-        <div class="project-card min-w-[300px] flex-shrink-0 p-5 bg-white dark:bg-gray-800 rounded-2xl shadow hover:shadow-md transition relative">
-          <div class="card-front">
-            <div class="project-image">
-              <img src="assets/images/projects/finance-tool.png" alt="Application gestion financière" class="rounded-xl">
-            </div>
-            <h3 class="text-2xl font-semibold mt-4 mb-2">Application de gestion financière</h3>
-            <p class="text-gray-600 mb-3">
-              Outil pour suivre dépenses, revenus et générer des rapports financiers.
-            </p>
+        <div class="project-slide">
+          <div class="project-card-compact bg-white dark:bg-gray-800 rounded-2xl shadow hover:shadow-md transition relative overflow-hidden">
+            <div class="card-front flex flex-col h-full">
+              <div class="project-image-compact">
+                <img src="assets/images/projects/finance-tool.png" alt="Application gestion financière" class="rounded-t-2xl">
+              </div>
+              <div class="flex flex-col flex-grow p-5">
+                <h3 class="text-xl font-semibold mb-2">Application de gestion financière</h3>
+                <p class="text-gray-600 dark:text-gray-300 mb-3 text-sm flex-grow">
+                  Outil pour suivre dépenses, revenus et générer des rapports financiers.
+                </p>
 
-            <div class="flex flex-wrap gap-2 mb-5">
-              <span class="px-3 py-1 border border-blue-300 rounded-full text-sm text-blue-700">Python</span>
-              <span class="px-3 py-1 border border-blue-300 rounded-full text-sm text-blue-700">MySQL</span>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span class="px-2 py-1 border border-blue-300 rounded-full text-xs text-blue-700 dark:text-blue-300">Python</span>
+                  <span class="px-2 py-1 border border-blue-300 rounded-full text-xs text-blue-700 dark:text-blue-300">MySQL</span>
+                </div>
+
+                <div class="flex gap-3 flex-wrap mt-auto">
+                  <a href="#" class="btn-code-compact flex items-center gap-1 text-xs">
+                    <img src="assets/images/skills/github.png" alt="GitHub" class="w-3 h-3"> Code
+                  </a>
+                  <a href="#" class="btn-demo-compact text-xs">Démo</a>
+                  <button class="btn-detail bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600 text-xs">Détails</button>
+                </div>
+              </div>
             </div>
 
-            <div class="flex gap-4">
-              <a href="#" class="btn-code flex items-center gap-1">
-                <img src="assets/images/skills/github.png" alt="GitHub"> Code
-              </a>
-              <a href="#" class="btn-demo">Démo</a>
-              <button class="btn-detail bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">Détails</button>
+            <div class="card-back hidden absolute top-0 left-0 w-full h-full bg-white dark:bg-gray-800 rounded-2xl shadow flex flex-col">
+              <div class="p-5 flex-grow">
+                <h3 class="text-xl font-semibold mb-3">Détails du projet</h3>
+                <p class="text-gray-700 dark:text-gray-200 mb-4 text-sm">
+                  Application pour PME permettant de suivre la trésorerie, générer des rapports mensuels et analyser les flux financiers.
+                </p>
+              </div>
+              <div class="p-5">
+                <button class="btn-back bg-gray-500 text-white px-3 py-1 rounded hover:bg-gray-600 w-full text-sm">Retour</button>
+              </div>
             </div>
-          </div>
-
-          <div class="card-back hidden absolute top-0 left-0 w-full h-full p-5 bg-white dark:bg-gray-800 rounded-2xl shadow flex flex-col">
-            <h3 class="text-2xl font-semibold mb-3">Détails du projet</h3>
-            <p class="text-gray-700 dark:text-gray-200 mb-4">
-              Application pour PME permettant de suivre la trésorerie, générer des rapports mensuels et analyser les flux financiers.
-            </p>
-            <button class="btn-back bg-gray-500 text-white px-3 py-1 rounded hover:bg-gray-600 mt-auto">Retour</button>
           </div>
         </div>
 
         <!-- Projet 6 -->
-        <div class="project-card min-w-[300px] flex-shrink-0 p-5 bg-white dark:bg-gray-800 rounded-2xl shadow hover:shadow-md transition relative">
-          <div class="card-front">
-            <div class="project-image">
-              <img src="assets/images/projects/automation.png" alt="Script automatisation" class="rounded-xl">
-            </div>
-            <h3 class="text-2xl font-semibold mt-4 mb-2">Automatisation de tâches</h3>
-            <p class="text-gray-600 mb-3">
-              Scripts pour automatiser la génération de rapports et envoi d’emails.
-            </p>
+        <div class="project-slide">
+          <div class="project-card-compact bg-white dark:bg-gray-800 rounded-2xl shadow hover:shadow-md transition relative overflow-hidden">
+            <div class="card-front flex flex-col h-full">
+              <div class="project-image-compact">
+                <img src="assets/images/projects/automation.png" alt="Script automatisation" class="rounded-t-2xl">
+              </div>
+              <div class="flex flex-col flex-grow p-5">
+                <h3 class="text-xl font-semibold mb-2">Automatisation de tâches</h3>
+                <p class="text-gray-600 dark:text-gray-300 mb-3 text-sm flex-grow">
+                  Scripts pour automatiser la génération de rapports et envoi d'emails.
+                </p>
 
-            <div class="flex flex-wrap gap-2 mb-5">
-              <span class="px-3 py-1 border border-blue-300 rounded-full text-sm text-blue-700">Python</span>
-              <span class="px-3 py-1 border border-blue-300 rounded-full text-sm text-blue-700">Shell</span>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span class="px-2 py-1 border border-blue-300 rounded-full text-xs text-blue-700 dark:text-blue-300">Python</span>
+                  <span class="px-2 py-1 border border-blue-300 rounded-full text-xs text-blue-700 dark:text-blue-300">Shell</span>
+                </div>
+
+                <div class="flex gap-3 flex-wrap mt-auto">
+                  <a href="#" class="btn-code-compact flex items-center gap-1 text-xs">
+                    <img src="assets/images/skills/github.png" alt="GitHub" class="w-3 h-3"> Code
+                  </a>
+                  <a href="#" class="btn-demo-compact text-xs">Démo</a>
+                  <button class="btn-detail bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600 text-xs">Détails</button>
+                </div>
+              </div>
             </div>
 
-            <div class="flex gap-4">
-              <a href="#" class="btn-code flex items-center gap-1">
-                <img src="assets/images/skills/github.png" alt="GitHub"> Code
-              </a>
-              <a href="#" class="btn-demo">Démo</a>
-              <button class="btn-detail bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">Détails</button>
+            <div class="card-back hidden absolute top-0 left-0 w-full h-full bg-white dark:bg-gray-800 rounded-2xl shadow flex flex-col">
+              <div class="p-5 flex-grow">
+                <h3 class="text-xl font-semibold mb-3">Détails du projet</h3>
+                <p class="text-gray-700 dark:text-gray-200 mb-4 text-sm">
+                  Automatisation de tâches répétitives : génération de rapports Excel et envoi automatique par email pour gagner du temps et réduire les erreurs.
+                </p>
+              </div>
+              <div class="p-5">
+                <button class="btn-back bg-gray-500 text-white px-3 py-1 rounded hover:bg-gray-600 w-full text-sm">Retour</button>
+              </div>
             </div>
-          </div>
-
-          <div class="card-back hidden absolute top-0 left-0 w-full h-full p-5 bg-white dark:bg-gray-800 rounded-2xl shadow flex flex-col">
-            <h3 class="text-2xl font-semibold mb-3">Détails du projet</h3>
-            <p class="text-gray-700 dark:text-gray-200 mb-4">
-              Automatisation de tâches répétitives : génération de rapports Excel et envoi automatique par email pour gagner du temps et réduire les erreurs.
-            </p>
-            <button class="btn-back bg-gray-500 text-white px-3 py-1 rounded hover:bg-gray-600 mt-auto">Retour</button>
           </div>
         </div>
 
       </div>
+
+      <!-- Indicateurs de pagination -->
+      <div class="flex justify-center gap-2 mt-6">
+        <span class="w-3 h-3 rounded-full bg-blue-500 pagination-dot active" data-index="0"></span>
+        <span class="w-3 h-3 rounded-full bg-gray-300 pagination-dot" data-index="1"></span>
+        <span class="w-3 h-3 rounded-full bg-gray-300 pagination-dot" data-index="2"></span>
+        <span class="w-3 h-3 rounded-full bg-gray-300 pagination-dot" data-index="3"></span>
+        <span class="w-3 h-3 rounded-full bg-gray-300 pagination-dot" data-index="4"></span>
+        <span class="w-3 h-3 rounded-full bg-gray-300 pagination-dot" data-index="5"></span>
+      </div>
+
     </div>
   </div>
 </section>
 
-<!-- JS Slider simple + Détails -->
-<script>
-const slider = document.getElementById("projects-slider");
-const nextBtn = document.getElementById("next-project");
-const prevBtn = document.getElementById("prev-project");
+  <!-- CV -->
+  <section id="cv" class="py-12 md:py-20 bg-gray-100 dark:bg-gray-900 px-4 sm:px-6">
+    <div class="max-w-7xl mx-auto w-full px-4 md:px-6 text-center">
 
-nextBtn.addEventListener("click", () => {
-  slider.scrollBy({ left: 320, behavior: "smooth" });
-});
+      <!-- Titre -->
+      <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gray-900 dark:text-gray-200">
+        Mon CV
+      </h2>
 
-prevBtn.addEventListener("click", () => {
-  slider.scrollBy({ left: -320, behavior: "smooth" });
-});
+      <!-- Description -->
+      <p class="text-gray-700 dark:text-gray-300 mb-6 max-w-2xl mx-auto text-sm md:text-base">
+        Vous pouvez télécharger mon CV complet pour consulter mes expériences, formations et compétences détaillées
+        en développement web ainsi qu'en banque, assurance et finance.
+      </p>
 
-// Détails back/front
-document.querySelectorAll('.project-card').forEach(card => {
-  const detailBtn = card.querySelector('.btn-detail');
-  const backBtn = card.querySelector('.btn-back');
-  const front = card.querySelector('.card-front');
-  const back = card.querySelector('.card-back');
+      <!-- Bouton Télécharger CV -->
+      <a href="assets/cv/Soulemane_Diallo_CV.pdf" 
+        download
+        target="_blank"
+        class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 transition w-full sm:w-auto">
+        <!-- Icône -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M12 12v8m0 0l-4-4m4 4l4-4M12 4v8" />
+        </svg>
+        Télécharger mon CV
+      </a>
 
-  detailBtn.addEventListener('click', () => {
-    front.classList.add('hidden');
-    back.classList.remove('hidden');
-  });
+      <!-- Petit texte explicatif -->
+      <p class="mt-4 text-gray-600 dark:text-gray-300 text-xs md:text-sm">
+        Cliquez sur le bouton ci-dessus pour télécharger mon CV complet au format PDF.
+      </p>
 
-  backBtn.addEventListener('click', () => {
-    back.classList.add('hidden');
-    front.classList.remove('hidden');
-  });
-});
-</script>
-
-
-
-<!-- CV -->
-<section id="cv" class="py-20 bg-gray-100 dark:bg-gray-900">
-  <div class="max-w-6xl mx-auto px-6 text-center">
-
-    <!-- Titre -->
-    <h2 class="text-4xl font-bold mb-6 text-gray-900 dark:text-gray-200">
-      Mon CV
-    </h2>
-
-    <!-- Description -->
-    <p class="text-gray-700 dark:text-gray-300 mb-6 max-w-2xl mx-auto">
-      Vous pouvez télécharger mon CV complet pour consulter mes expériences, formations et compétences détaillées
-      en développement web ainsi qu’en banque, assurance et finance.
-    </p>
-
-   <!-- Bouton Télécharger CV -->
-<a href="assets/cv/Soulemane_Diallo_CV.pdf" 
-   download
-   target="_blank"
-   class="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 
-          dark:bg-blue-500 dark:hover:bg-blue-600 transition">
-   <!-- Icône -->
-   <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-           d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M12 12v8m0 0l-4-4m4 4l4-4M12 4v8" />
-   </svg>
-   Télécharger mon CV
-</a>
-
-    <!-- Petit texte explicatif -->
-    <p class="mt-4 text-gray-600 dark:text-gray-300 text-sm">
-      Cliquez sur le bouton ci-dessus pour télécharger mon CV complet au format PDF.
-    </p>
-
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="py-20 bg-white dark:bg-gray-800">
-  <div class="max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-12">
-
-    <!-- Formulaire -->
-    <div class="bg-gray-50 dark:bg-gray-900 p-8 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 transition hover:shadow-xl">
-      <h2 class="text-3xl font-bold mb-6 text-center lg:text-left text-gray-900 dark:text-gray-200">Me contacter</h2>
-
-      <form class="space-y-5">
-        <input type="text" name="name" placeholder="Nom complet" required
-               class="w-full p-4 border rounded-xl focus:ring-2 focus:ring-blue-400 focus:outline-none dark:bg-gray-800 dark:text-gray-200"/>
-
-        <input type="email" name="email" placeholder="Email" required
-               class="w-full p-4 border rounded-xl focus:ring-2 focus:ring-blue-400 focus:outline-none dark:bg-gray-800 dark:text-gray-200"/>
-
-        <textarea name="message" placeholder="Votre message" rows="5" required
-                  class="w-full p-4 border rounded-xl focus:ring-2 focus:ring-blue-400 focus:outline-none dark:bg-gray-800 dark:text-gray-200"></textarea>
-
-        <button type="submit"
-                class="w-full p-4 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold rounded-xl hover:from-blue-600 hover:to-blue-700 transition">
-          Envoyer
-        </button>
-      </form>
     </div>
+  </section>
 
-    <!-- Coordonnées & Réseaux -->
-    <div class="space-y-6">
+  <!-- CONTACT -->
+  <section id="contact" class="py-12 md:py-20 bg-white dark:bg-gray-800 px-4 sm:px-6">
+    <div class="max-w-7xl mx-auto w-full px-4 md:px-6 grid lg:grid-cols-2 gap-8 md:gap-12">
 
-      <h3 class="text-2xl font-semibold text-gray-900 dark:text-gray-200 mb-4">Mes réseaux</h3>
+      <!-- Formulaire -->
+      <div class="bg-gray-50 dark:bg-gray-900 p-6 md:p-8 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 transition hover:shadow-xl">
+        <h2 class="text-2xl md:text-3xl font-bold mb-6 text-center lg:text-left text-gray-900 dark:text-gray-200">Me contacter</h2>
 
-      <div class="grid gap-4">
+        <form class="space-y-5">
+          <input type="text" name="name" placeholder="Nom complet" required
+                class="w-full p-4 border rounded-xl focus:ring-2 focus:ring-blue-400 focus:outline-none dark:bg-gray-800 dark:text-gray-200 text-sm md:text-base"/>
 
-        <!-- Email -->
-        <a href="mailto:soulemanediallo1999@gmail.com"
-           class="flex items-center gap-4 p-4 bg-gray-100 dark:bg-gray-700 rounded-xl shadow hover:shadow-md hover:bg-gray-200 dark:hover:bg-gray-600 transition">
-          <img src="assets/images/icons/gmail.svg" alt="Email" class="h-6 w-6">
-          <span>Email: soulemanediallo@gmail.com</span>
-        </a>
+          <input type="email" name="email" placeholder="Email" required
+                class="w-full p-4 border rounded-xl focus:ring-2 focus:ring-blue-400 focus:outline-none dark:bg-gray-800 dark:text-gray-200 text-sm md:text-base"/>
 
-        <!-- LinkedIn -->
-        <a href="https://www.linkedin.com/in/soulemane-diallo-1265a81bb" target="_blank"
-           class="flex items-center gap-4 p-4 bg-gray-100 dark:bg-gray-700 rounded-xl shadow hover:shadow-md hover:bg-gray-200 dark:hover:bg-gray-600 transition">
-          <img src="assets/images/icons/linkedin.svg" alt="LinkedIn" class="h-6 w-6">
-          <span>LinkedIn: Mon profil</span>
-        </a>
+          <textarea name="message" placeholder="Votre message" rows="5" required
+                    class="w-full p-4 border rounded-xl focus:ring-2 focus:ring-blue-400 focus:outline-none dark:bg-gray-800 dark:text-gray-200 text-sm md:text-base"></textarea>
 
-        <!-- GitHub -->
-        <a href="https://github.com/iasoul433-max" target="_blank"
-           class="flex items-center gap-4 p-4 bg-gray-100 dark:bg-gray-700 rounded-xl shadow hover:shadow-md hover:bg-gray-200 dark:hover:bg-gray-600 transition">
-          <img src="assets/images/icons/github.svg" alt="GitHub" class="h-6 w-6">
-          <span>GitHub: Mon dépôt</span>
-        </a>
+          <button type="submit"
+                  class="w-full p-4 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold rounded-xl hover:from-blue-600 hover:to-blue-700 transition text-sm md:text-base">
+            Envoyer
+          </button>
+        </form>
+      </div>
 
-        <!-- Téléphone -->
-        <a href="https://wa.me/221772986259"
-           class="flex items-center gap-4 p-4 bg-gray-100 dark:bg-gray-700 rounded-xl shadow hover:shadow-md hover:bg-gray-200 dark:hover:bg-gray-600 transition">
-          <img src="assets/images/icons/phone.svg" alt="Téléphone" class="h-6 w-6">
-          <span>WhatsApp: +221 77 298 62 59</span>
-        </a>
+      <!-- Coordonnées & Réseaux -->
+      <div class="space-y-6">
+
+        <h3 class="text-xl md:text-2xl font-semibold text-gray-900 dark:text-gray-200 mb-4">Mes réseaux</h3>
+
+        <div class="grid gap-4">
+
+          <!-- Email -->
+          <a href="mailto:soulemanediallo1999@gmail.com"
+            class="flex items-center gap-4 p-4 bg-gray-100 dark:bg-gray-700 rounded-xl shadow hover:shadow-md hover:bg-gray-200 dark:hover:bg-gray-600 transition">
+            <img src="assets/images/icons/gmail.svg" alt="Email" class="h-5 w-5 md:h-6 md:w-6">
+            <span class="text-sm md:text-base">Email: soulemanediallo@gmail.com</span>
+          </a>
+
+          <!-- LinkedIn -->
+          <a href="https://www.linkedin.com/in/soulemane-diallo-1265a81bb" target="_blank"
+            class="flex items-center gap-4 p-4 bg-gray-100 dark:bg-gray-700 rounded-xl shadow hover:shadow-md hover:bg-gray-200 dark:hover:bg-gray-600 transition">
+            <img src="assets/images/icons/linkedin.svg" alt="LinkedIn" class="h-5 w-5 md:h-6 md:w-6">
+            <span class="text-sm md:text-base">LinkedIn: Mon profil</span>
+          </a>
+
+          <!-- GitHub -->
+          <a href="https://github.com/iasoul433-max" target="_blank"
+            class="flex items-center gap-4 p-4 bg-gray-100 dark:bg-gray-700 rounded-xl shadow hover:shadow-md hover:bg-gray-200 dark:hover:bg-gray-600 transition">
+            <img src="assets/images/icons/github.svg" alt="GitHub" class="h-5 w-5 md:h-6 md:w-6">
+            <span class="text-sm md:text-base">GitHub: Mon dépôt</span>
+          </a>
+
+          <!-- Téléphone -->
+          <a href="https://wa.me/221772986259" target="_blank"
+            class="flex items-center gap-4 p-4 bg-gray-100 dark:bg-gray-700 rounded-xl shadow hover:shadow-md hover:bg-gray-200 dark:hover:bg-gray-600 transition">
+            <img src="assets/images/icons/phone.svg" alt="Téléphone" class="h-5 w-5 md:h-6 md:w-6">
+            <span class="text-sm md:text-base">WhatsApp: +221 77 298 62 59</span>
+          </a>
+
+        </div>
 
       </div>
 
     </div>
+  </section>
 
-  </div>
-</section>
+  <!-- FOOTER -->
+  <footer class="bg-gray-900 dark:bg-black text-gray-200 py-8 md:py-12 px-4 sm:px-6">
+    <div class="max-w-7xl mx-auto w-full px-4 md:px-6 grid md:grid-cols-2 gap-8">
 
+      <!-- Liens utiles -->
+      <div class="flex flex-col space-y-2">
+        <h4 class="font-semibold text-lg mb-2">Liens utiles</h4>
+        <a href="#home" class="hover:text-blue-400 transition text-sm md:text-base">Accueil</a>
+        <a href="#about" class="hover:text-blue-400 transition text-sm md:text-base">À propos</a>
+        <a href="#skills" class="hover:text-blue-400 transition text-sm md:text-base">Compétences</a>
+        <a href="#projects" class="hover:text-blue-400 transition text-sm md:text-base">Projets</a>
+        <a href="#contact" class="hover:text-blue-400 transition text-sm md:text-base">Contact</a>
+      </div>
 
-<!-- FOOTER -->
-<footer class="bg-gray-900 dark:bg-black text-gray-200 py-12">
-  <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-8">
-
-    <!-- Liens utiles -->
-    <div class="flex flex-col space-y-2">
-      <h4 class="font-semibold text-lg mb-2">Liens utiles</h4>
-      <a href="#home" class="hover:text-blue-400 transition">Accueil</a>
-      <a href="#about" class="hover:text-blue-400 transition">À propos</a>
-      <a href="#skills" class="hover:text-blue-400 transition">Compétences</a>
-      <a href="#projects" class="hover:text-blue-400 transition">Projets</a>
-      <a href="#contact" class="hover:text-blue-400 transition">Contact</a>
-    </div>
-
-    <!-- Réseaux sociaux -->
-    <div class="flex flex-col space-y-2">
-      <h4 class="font-semibold text-lg mb-2">Réseaux sociaux</h4>
-      <a href="mailto:soulemanediallo1999@gmail.com" class="flex items-center gap-2 hover:text-blue-400 transition">
-        <img src="assets/images/icons/gmail.svg" alt="Email" class="h-5 w-5"> Email
-      </a>
-      <a href="https://www.linkedin.com/in/soulemane-diallo-1265a81bb" target="_blank" class="flex items-center gap-2 hover:text-blue-400 transition">
-        <img src="assets/images/icons/linkedin.svg" alt="LinkedIn" class="h-5 w-5"> LinkedIn
-      </a>
-      <a href="https://github.com/iasoul433-max" target="_blank" class="flex items-center gap-2 hover:text-blue-400 transition">
-        <img src="assets/images/icons/github.svg" alt="GitHub" class="h-5 w-5"> GitHub
-      </a>
-     <a href="https://wa.me/221772986259" target="_blank" class="flex items-center gap-2 hover:text-green-500 transition">
-  <img src="assets/images/icons/phone.svg" alt="WhatsApp" class="h-5 w-5"> WhatsApp
-</a>
+      <!-- Réseaux sociaux -->
+      <div class="flex flex-col space-y-2">
+        <h4 class="font-semibold text-lg mb-2">Réseaux sociaux</h4>
+        <a href="mailto:soulemanediallo1999@gmail.com" class="flex items-center gap-2 hover:text-blue-400 transition text-sm md:text-base">
+          <img src="assets/images/icons/gmail.svg" alt="Email" class="h-4 w-4 md:h-5 md:w-5"> Email
+        </a>
+        <a href="https://www.linkedin.com/in/soulemane-diallo-1265a81bb" target="_blank" class="flex items-center gap-2 hover:text-blue-400 transition text-sm md:text-base">
+          <img src="assets/images/icons/linkedin.svg" alt="LinkedIn" class="h-4 w-4 md:h-5 md:w-5"> LinkedIn
+        </a>
+        <a href="https://github.com/iasoul433-max" target="_blank" class="flex items-center gap-2 hover:text-blue-400 transition text-sm md:text-base">
+          <img src="assets/images/icons/github.svg" alt="GitHub" class="h-4 w-4 md:h-5 md:w-5"> GitHub
+        </a>
+        <a href="https://wa.me/221772986259" target="_blank" class="flex items-center gap-2 hover:text-green-500 transition text-sm md:text-base">
+          <img src="assets/images/icons/phone.svg" alt="WhatsApp" class="h-4 w-4 md:h-5 md:w-5"> WhatsApp
+        </a>
+      </div>
 
     </div>
 
-  </div>
+    <!-- Ligne de séparation -->
+    <div class="border-t border-gray-700 mt-8 pt-4 text-center text-gray-500 text-xs md:text-sm">
+      <img src="assets/images/logo.svg" alt="Logo Soulemane Diallo" class="h-8 md:h-10 mx-auto mb-2">
+      © 2025 Soulemane Diallo — Développeur Web & Référent Digital
+    </div>
+  </footer>
 
-  <!-- Ligne de séparation -->
-  <div class="border-t border-gray-700 mt-8 pt-4 text-center text-gray-500 text-sm">
-    <img src="assets/images/logo.svg" alt="Logo Soulemane Diallo" class="h-10 mx-auto mb-2">
-    © 2025 Soulemane Diallo — Développeur Web & Référent Digital
-  </div>
-</footer>
+  <!-- SCRIPTS -->
+  <script>
+    // Gestion du menu hamburger
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const themeToggle = document.getElementById('theme-toggle');
 
-<script>
-  const texts = [
-    "Développeur Web",
-    "Référent Digital",
-    "Analyste Financier Junior"
-  ];
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      const icon = menuToggle.querySelector('i');
+      if (mobileMenu.classList.contains('hidden')) {
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+      } else {
+        icon.classList.remove('fa-bars');
+        icon.classList.add('fa-times');
+      }
+    });
 
-  let index = 0;
-  let charIndex = 0;
-  const speed = 80;
-  const delay = 1500;
-  const typingElement = document.getElementById("typing-text");
+    // Fermer le menu mobile en cliquant sur un lien
+    document.querySelectorAll('#mobile-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        const icon = menuToggle.querySelector('i');
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+      });
+    });
 
-  function typeText() {
-    if (charIndex < texts[index].length) {
-      typingElement.textContent += texts[index].charAt(charIndex);
-      charIndex++;
-      setTimeout(typeText, speed);
-    } else {
-      setTimeout(eraseText, delay);
+    // Animation de texte
+    const texts = [
+      "Développeur Web",
+      "Référent Digital",
+      "Etudiant en Banque,Finance et Assurance"
+    ];
+
+    let index = 0;
+    let charIndex = 0;
+    const speed = 80;
+    const delay = 1500;
+    const typingElement = document.getElementById("typing-text");
+
+    function typeText() {
+      if (charIndex < texts[index].length) {
+        typingElement.textContent += texts[index].charAt(charIndex);
+        charIndex++;
+        setTimeout(typeText, speed);
+      } else {
+        setTimeout(eraseText, delay);
+      }
     }
-  }
 
-  function eraseText() {
-    if (charIndex > 0) {
-      typingElement.textContent = texts[index].substring(0, charIndex - 1);
-      charIndex--;
-      setTimeout(eraseText, speed / 2);
-    } else {
-      index = (index + 1) % texts.length;
-      setTimeout(typeText, speed);
+    function eraseText() {
+      if (charIndex > 0) {
+        typingElement.textContent = texts[index].substring(0, charIndex - 1);
+        charIndex--;
+        setTimeout(eraseText, speed / 2);
+      } else {
+        index = (index + 1) % texts.length;
+        setTimeout(typeText, speed);
+      }
     }
-  }
 
-  document.addEventListener("DOMContentLoaded", typeText);
-</script>
+    document.addEventListener("DOMContentLoaded", typeText);
 
-<script>
-  const toggle = document.getElementById("theme-toggle");
+    // Dark/Light mode
+    themeToggle.addEventListener("click", () => {
+      document.documentElement.classList.toggle("dark");
+      const isDark = document.documentElement.classList.contains("dark");
+      themeToggle.textContent = isDark ? "☀️" : "🌙";
+    });
 
-  toggle.addEventListener("click", () => {
-    document.documentElement.classList.toggle("dark");
-  });
-</script>
+    // ===== COMPÉTENCES SLIDER CORRIGÉ =====
+    const skillsTrack = document.querySelector('.skills-track');
+    const skillsNext = document.getElementById('skills-next');
+    const skillsPrev = document.getElementById('skills-prev');
+    let autoScrollInterval;
+    let isAutoScrolling = true;
+    let scrollDirection = 1; // 1 = droite, -1 = gauche
+
+    function startAutoScroll() {
+      if (!isAutoScrolling) return;
+      
+      autoScrollInterval = setInterval(() => {
+        if (skillsTrack) {
+          skillsTrack.scrollLeft += scrollDirection;
+          
+          // Si on arrive à la fin, on change de direction
+          if (skillsTrack.scrollLeft >= skillsTrack.scrollWidth - skillsTrack.clientWidth - 10) {
+            scrollDirection = -1; // Aller vers la gauche
+          }
+          
+          // Si on revient au début, on change de direction
+          if (skillsTrack.scrollLeft <= 10) {
+            scrollDirection = 1; // Aller vers la droite
+          }
+        }
+      }, 30);
+    }
+
+    function stopAutoScroll() {
+      clearInterval(autoScrollInterval);
+      isAutoScrolling = false;
+    }
+
+    function resumeAutoScroll() {
+      if (!isAutoScrolling) {
+        isAutoScrolling = true;
+        startAutoScroll();
+      }
+    }
+
+    // Démarrer le défilement automatique
+    if (skillsTrack) {
+      startAutoScroll();
+      
+      // Arrêter le défilement automatique au survol
+      skillsTrack.addEventListener('mouseenter', stopAutoScroll);
+      skillsTrack.addEventListener('mouseleave', resumeAutoScroll);
+      
+      // Navigation avec flèches CORRIGÉE
+      if (skillsNext && skillsPrev) {
+        skillsNext.addEventListener('click', () => {
+          stopAutoScroll();
+          skillsTrack.scrollBy({ left: 300, behavior: 'smooth' });
+          
+          // Reprendre auto-scroll après 3 secondes
+          setTimeout(() => {
+            resumeAutoScroll();
+          }, 3000);
+        });
+        
+        skillsPrev.addEventListener('click', () => {
+          stopAutoScroll();
+          skillsTrack.scrollBy({ left: -300, behavior: 'smooth' });
+          
+          // Reprendre auto-scroll après 3 secondes
+          setTimeout(() => {
+            resumeAutoScroll();
+          }, 3000);
+        });
+      }
+    }
+
+    // ===== PROJETS SLIDER CORRIGÉ =====
+    const projectsSlider = document.getElementById('projects-slider');
+    const prevProjectBtn = document.getElementById('prev-project');
+    const nextProjectBtn = document.getElementById('next-project');
+    const paginationDots = document.querySelectorAll('.pagination-dot');
+    let currentProjectIndex = 0;
+    const projectSlides = document.querySelectorAll('.project-slide');
+
+    // Calculer la largeur d'une carte (ajustée pour responsive)
+    function getSlideWidth() {
+      if (window.innerWidth < 640) {
+        return window.innerWidth * 0.85; // 85% de l'écran sur mobile
+      } else if (window.innerWidth < 1024) {
+        return 400; // Largeur fixe sur tablette
+      } else {
+        return 350; // Largeur fixe sur desktop
+      }
+    }
+
+    // Mettre à jour la pagination
+    function updatePagination() {
+      paginationDots.forEach((dot, index) => {
+        if (index === currentProjectIndex) {
+          dot.classList.add('active', 'bg-blue-500');
+          dot.classList.remove('bg-gray-300');
+        } else {
+          dot.classList.remove('active', 'bg-blue-500');
+          dot.classList.add('bg-gray-300');
+        }
+      });
+    }
+
+    // Aller à un projet spécifique
+    function goToProject(index) {
+      if (index < 0) index = projectSlides.length - 1;
+      if (index >= projectSlides.length) index = 0;
+      
+      currentProjectIndex = index;
+      const slideWidth = getSlideWidth();
+      const gap = window.innerWidth < 640 ? 24 : 32; // gap-6 ou gap-8
+      
+      projectsSlider.scrollTo({
+        left: index * (slideWidth + gap),
+        behavior: 'smooth'
+      });
+      
+      updatePagination();
+    }
+
+    // Événements pour les flèches projets
+    if (nextProjectBtn) {
+      nextProjectBtn.addEventListener('click', () => {
+        currentProjectIndex = (currentProjectIndex + 1) % projectSlides.length;
+        goToProject(currentProjectIndex);
+      });
+    }
+
+    if (prevProjectBtn) {
+      prevProjectBtn.addEventListener('click', () => {
+        currentProjectIndex = (currentProjectIndex - 1 + projectSlides.length) % projectSlides.length;
+        goToProject(currentProjectIndex);
+      });
+    }
+
+    // Événements pour la pagination
+    paginationDots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        const index = parseInt(dot.getAttribute('data-index'));
+        goToProject(index);
+      });
+    });
+
+    // Mettre à jour le slider quand la fenêtre est redimensionnée
+    window.addEventListener('resize', () => {
+      goToProject(currentProjectIndex);
+    });
+
+    // Détecter le scroll pour mettre à jour la pagination
+    projectsSlider.addEventListener('scroll', () => {
+      const slideWidth = getSlideWidth();
+      const gap = window.innerWidth < 640 ? 24 : 32;
+      const scrollPosition = projectsSlider.scrollLeft;
+      
+      const newIndex = Math.round(scrollPosition / (slideWidth + gap));
+      if (newIndex !== currentProjectIndex && newIndex >= 0 && newIndex < projectSlides.length) {
+        currentProjectIndex = newIndex;
+        updatePagination();
+      }
+    });
+
+    // Détails back/front pour les projets
+    document.querySelectorAll('.project-card-compact').forEach(card => {
+      const detailBtn = card.querySelector('.btn-detail');
+      const backBtn = card.querySelector('.btn-back');
+      const front = card.querySelector('.card-front');
+      const back = card.querySelector('.card-back');
+
+      if (detailBtn && backBtn && front && back) {
+        detailBtn.addEventListener('click', () => {
+          front.classList.add('hidden');
+          back.classList.remove('hidden');
+        });
+
+        backBtn.addEventListener('click', () => {
+          back.classList.add('hidden');
+          front.classList.remove('hidden');
+        });
+      }
+    });
+
+    // Fermer le menu en scroll
+    window.addEventListener('scroll', () => {
+      if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+        mobileMenu.classList.add('hidden');
+        const icon = menuToggle.querySelector('i');
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+      }
+    });
+
+    // Initialiser la pagination
+    updatePagination();
+  </script>
 
 </body>
 </html>

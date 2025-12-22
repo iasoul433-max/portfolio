@@ -8,6 +8,12 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Empêcher le débordement horizontal */
+body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
 /* Nav links hover */
 .nav-link {
   transition: color 0.3s ease;
@@ -36,10 +42,11 @@ html {
 
 /* Avatar container */
 .avatar-wrapper {
-  width: 450px;
-  height: 450px;
+  width: 280px;
+  height: 280px;
   border-radius: 50%;
   object-fit: cover;
+  margin: 0 auto;
 
   /* Neumorphism */
   background: #e5e7eb; /* gris clair Tailwind */
@@ -50,6 +57,14 @@ html {
   /* Effet flottant */
   animation: float 6s ease-in-out infinite;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+}
+
+.avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
 /* Hover : léger effet pressé */
@@ -66,14 +81,34 @@ html {
   100% { transform: translateY(0); }
 }
 
+/* Responsive Avatar */
+@media (min-width: 640px) {
+  .avatar-wrapper {
+    width: 350px;
+    height: 350px;
+  }
+}
+
+@media (min-width: 768px) {
+  .avatar-wrapper {
+    width: 400px;
+    height: 400px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .avatar-wrapper {
+    width: 450px;
+    height: 450px;
+  }
+}
 
 /* Logo personnalisable */
 .logo-custom {
-  height: 80px;          /* Taille du logo */
-  margin-left: -50px;    /* Décale vers la gauche */
+  height: 52px;
   width: auto;
   transition: transform 0.3s ease;
-   cursor: pointer;
+  cursor: pointer;
 }
 
 /* Optionnel : petit effet au survol */
@@ -81,15 +116,28 @@ html {
   transform: scale(1.05);
 }
 
-/* Responsive */
-@media (max-width: 768px) {
+/* Responsive Logo */
+@media (min-width: 768px) {
   .logo-custom {
-    height: 52px;
-    margin-left: -8px;
+    height: 60px;
   }
 }
 
-/* Skills slider */
+@media (min-width: 1024px) {
+  .logo-custom {
+    height: 70px;
+  }
+}
+
+/* ===== STYLES POUR COMPÉTENCES ===== */
+
+/* Container du slider compétences */
+.skills-slider-container {
+  position: relative;
+  padding: 0 3rem;
+}
+
+/* Slider compétences */
 .skills-slider {
   width: 100%;
   overflow: hidden;
@@ -98,120 +146,605 @@ html {
 
 .skills-track {
   display: flex;
-  gap: 55px;
-  animation: scrollSkills 30s linear infinite;
+  gap: 2.5rem;
+  padding: 1rem 0;
+  transition: transform 0.5s ease;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none; /* Firefox */
 }
 
+.skills-track::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+/* Item de compétence */
+.skill-item {
+  min-width: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: all 0.3s ease;
+  padding: 0.5rem;
+}
+
+.skill-item:hover {
+  transform: translateY(-5px);
+}
+
+/* Logo de compétence */
 .skill-logo {
-  min-width: 90px;
+  width: 70px;
+  height: 70px;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.skill-logo img {
-  height: 60px;
-  opacity: 0.8;
-  transition: all 0.1s ease;
-}
-
-.skill-logo img:hover {
-  opacity: 1;
-  transform: scale(1.15);
-}
-
-/* Animation */
-@keyframes scrollSkills {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-150%);
-  }
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .skill-logo img {
-    height: 45px;
-  }
-}
-/* Projects */
-.project-card {
+  margin-bottom: 0.75rem;
   background: white;
-  padding: 24px;
-  border-radius: 16px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+  border-radius: 12px;
+  padding: 0.75rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease;
 }
 
-.project-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 35px rgba(0,0,0,0.08);
+.dark .skill-logo {
+  background: #1f2937;
 }
 
-/* Image projet */
-.project-image {
+.skill-logo:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+  transform: scale(1.05);
+}
+
+.skill-logo img {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Nom de compétence */
+.skill-name {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #4b5563;
+  margin-top: 0.25rem;
+  transition: color 0.3s ease;
+}
+
+.dark .skill-name {
+  color: #d1d5db;
+}
+
+.skill-item:hover .skill-name {
+  color: #2563eb;
+}
+
+.dark .skill-item:hover .skill-name {
+  color: #60a5fa;
+}
+
+/* Boutons de navigation compétences */
+.skills-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 20;
+  background: white;
+  border: none;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #4b5563;
+  font-size: 1.25rem;
+}
+
+.dark .skills-nav-btn {
+  background: #374151;
+  color: #d1d5db;
+}
+
+.skills-nav-btn:hover {
+  background: #f3f4f6;
+  transform: translateY(-50%) scale(1.1);
+  color: #2563eb;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.dark .skills-nav-btn:hover {
+  background: #4b5563;
+  color: #60a5fa;
+}
+
+.skills-nav-btn:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+/* Responsive compétences */
+@media (max-width: 768px) {
+  .skills-slider-container {
+    padding: 0 1rem;
+  }
+  
+  .skill-item {
+    min-width: 85px;
+  }
+  
+  .skill-logo {
+    width: 60px;
+    height: 60px;
+    padding: 0.5rem;
+  }
+  
+  .skill-logo img {
+    height: 30px;
+  }
+  
+  .skill-name {
+    font-size: 0.75rem;
+  }
+  
+  .skills-nav-btn {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .skills-track {
+    gap: 1.5rem;
+  }
+  
+  .skill-item {
+    min-width: 75px;
+  }
+  
+  .skill-logo {
+    width: 55px;
+    height: 55px;
+  }
+  
+  .skill-logo img {
+    height: 25px;
+  }
+}
+
+/* ===== STYLES POUR PROJETS SLIDER ===== */
+
+/* Masquer la scrollbar */
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+/* Slide de projet - TAILLE FIXE POUR TOUS */
+.project-slide {
+  min-width: 300px; /* TAILLE FIXE pour toutes les cartes */
+  max-width: 300px; /* TAILLE FIXE pour toutes les cartes */
+  flex-shrink: 0;
+  padding: 0.5rem;
+}
+
+@media (min-width: 640px) {
+  .project-slide {
+    min-width: 350px; /* Un peu plus large sur tablette */
+    max-width: 350px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .project-slide {
+    min-width: 400px; /* Plus large sur desktop */
+    max-width: 400px;
+  }
+}
+
+/* Carte de projet compacte - HAUTEUR FIXE */
+.project-card-compact {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+  height: 480px; /* HAUTEUR FIXE pour toutes les cartes */
+  display: flex;
+  flex-direction: column;
+  width: 100%; /* Prend toute la largeur du .project-slide */
+  overflow: hidden; /* Empêche tout débordement */
+}
+
+.dark .project-card-compact {
+  background: #1f2937;
+}
+
+.project-card-compact:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+}
+
+/* Image projet compact - DIMENSIONS FIXES */
+.project-image-compact {
   width: 100%;
-  height: 180px;
-  border-radius: 12px;
+  height: 200px; /* HAUTEUR FIXE pour toutes les images */
   overflow: hidden;
   background: #f3f4f6;
+  flex-shrink: 0; /* Empêche la réduction */
 }
 
-.project-image img {
+.dark .project-image-compact {
+  background: #374151;
+}
+
+/* CONTROLE TOTAL DES IMAGES */
+.project-image-compact img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover; /* L'image remplit le conteneur sans déformer */
+  object-position: center; /* Centre l'image */
+  transition: transform 0.5s ease;
+  display: block; /* Élimine l'espace blanc sous l'image */
 }
 
-/* Boutons */
-.btn-code,
-.btn-demo {
+.project-card-compact:hover .project-image-compact img {
+  transform: scale(1.05);
+}
+
+/* Contenu de la carte - prend l'espace restant */
+.project-card-compact .card-front > div:not(.project-image-compact) {
+  flex: 1; /* Prend tout l'espace disponible après l'image */
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem; /* p-5 */
+}
+
+/* Assurer que le contenu texte est bien contenu */
+.project-card-compact h3 {
+  font-size: 1.25rem; /* text-xl */
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Limite à 2 lignes */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.project-card-compact p {
+  font-size: 0.875rem; /* text-sm */
+  color: #6b7280; /* text-gray-600 */
+  margin-bottom: 0.75rem;
+  line-height: 1.5;
+  flex: 1; /* Prend l'espace disponible */
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Limite à 3 lignes */
+  -webkit-box-orient: vertical;
+}
+
+.dark .project-card-compact p {
+  color: #d1d5db; /* text-gray-300 */
+}
+
+/* Conteneur pour les tags - fixe en bas */
+.project-card-compact .flex-wrap {
+  margin-top: auto; /* Pousse vers le bas */
+  margin-bottom: 1rem;
+}
+
+/* Boutons en bas de carte */
+.project-card-compact > div:last-child {
+  margin-top: auto; /* S'assure que c'est en bas */
+}
+
+/* Boutons projets compacts */
+.btn-code-compact,
+.btn-demo-compact {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 10px 18px;
+  gap: 6px;
+  padding: 6px 12px;
   border-radius: 999px;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 500;
   transition: all 0.25s ease;
+  flex-shrink: 0; /* Empêche la réduction */
 }
 
 /* Code */
-.btn-code {
+.btn-code-compact {
   border: 1px solid #e5e7eb;
   background: #fff;
+  color: #4b5563;
 }
 
-.btn-code img {
-  width: 18px;
-  height: 18px;
+.dark .btn-code-compact {
+  background: #374151;
+  border-color: #4b5563;
+  color: #d1d5db;
 }
 
-.btn-code:hover {
+.btn-code-compact:hover {
   background: #f9fafb;
 }
 
+.dark .btn-code-compact:hover {
+  background: #4b5563;
+}
+
+.btn-code-compact img {
+  width: 12px;
+  height: 12px;
+}
+
 /* Demo */
-.btn-demo {
+.btn-demo-compact {
   background: #2563eb;
   color: white;
+  border: none;
 }
 
-.btn-demo:hover {
+.btn-demo-compact:hover {
   background: #1e40af;
 }
-/* About section */
-.about-avatar {
-  width: 260px;
-  height: 260px;
-  object-fit: cover;
-  border-radius: 999px;
-  box-shadow: 0 15px 30px rgba(0,0,0,0.12);
-  transition: transform 0.4s ease;
+
+/* Version back (détails) - même hauteur */
+.project-card-compact .card-back {
+  height: 480px; /* Même hauteur que le front */
+  overflow-y: auto; /* Scroll si contenu trop long */
 }
 
-.about-avatar:hover {
+/* Flèches projets */
+#prev-project, #next-project {
+  background: white;
+  border: none;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #4b5563;
+}
+
+.dark #prev-project, .dark #next-project {
+  background: #374151;
+  color: #d1d5db;
+}
+
+#prev-project:hover, #next-project:hover {
+  background: #f3f4f6;
+  transform: scale(1.1);
+  color: #2563eb;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.dark #prev-project:hover, .dark #next-project:hover {
+  background: #4b5563;
+  color: #60a5fa;
+}
+
+/* Pagination dots */
+.pagination-dot {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.pagination-dot.active {
+  background-color: #3b82f6 !important;
+  transform: scale(1.2);
+}
+
+.pagination-dot:hover {
+  transform: scale(1.2);
+}
+
+/* Responsive projets - ajustements finaux */
+@media (max-width: 640px) {
+  .project-slide {
+    min-width: 280px;
+    max-width: 280px;
+  }
+  
+  .project-card-compact {
+    height: 460px; /* Un peu moins haut sur mobile */
+  }
+  
+  .project-image-compact {
+    height: 180px;
+  }
+  
+  .project-card-compact .card-back {
+    height: 460px;
+  }
+}
+
+@media (min-width: 768px) {
+  .project-image-compact {
+    height: 200px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .project-image-compact {
+    height: 220px;
+  }
+}
+
+/* Améliorations pour mobile */
+@media (max-width: 767px) {
+  /* Padding général sur mobile */
+  section {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  /* Texte centré sur mobile */
+  .text-justify {
+    text-align: left;
+  }
+  
+  /* Ajustement des titres */
+  h1, h2, h3 {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+  
+  /* Bouton theme position */
+  #theme-toggle {
+    top: 5.5rem;
+    right: 1rem;
+    padding: 0.75rem;
+  }
+  
+  /* Ajuster les flèches sur mobile */
+  #prev-project, #next-project {
+    width: 2rem;
+    height: 2rem;
+    font-size: 0.8rem;
+  }
+  
+  /* Ajuster la position des flèches sur mobile */
+  #prev-project {
+    left: 0.5rem;
+  }
+  
+  #next-project {
+    right: 0.5rem;
+  }
+}
+
+/* Correction pour les images dans les cartes */
+.project-card-compact img,
+.skill-logo img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Assurer que tout s'adapte */
+* {
+  box-sizing: border-box;
+}
+
+/* Ajustement pour très petits écrans */
+@media (max-width: 374px) {
+  .avatar-wrapper {
+    width: 240px;
+    height: 240px;
+  }
+  
+  .about-avatar {
+    width: 180px;
+    height: 180px;
+  }
+  
+  .project-card-compact {
+    padding: 0;
+  }
+  
+  .logo-custom {
+    height: 45px;
+  }
+  
+  .skill-item {
+    min-width: 70px;
+  }
+  
+  .skill-logo {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .skill-logo img {
+    height: 22px;
+  }
+  
+  .skill-name {
+    font-size: 0.7rem;
+  }
+  
+  .project-slide {
+    min-width: 90vw;
+  }
+}
+/* Avatar About section - Cadre rond */
+.about-avatar-wrapper {
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 8px solid white;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  transition: all 0.4s ease;
+}
+
+.dark .about-avatar-wrapper {
+  border-color: #374151;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.about-avatar-wrapper:hover {
   transform: scale(1.03);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+}
+
+.dark .about-avatar-wrapper:hover {
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+}
+
+.about-avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.about-avatar-wrapper:hover .about-avatar {
+  transform: scale(1.05);
+}
+
+/* Responsive About avatar */
+@media (min-width: 640px) {
+  .about-avatar-wrapper {
+    width: 320px;
+    height: 320px;
+  }
+}
+
+@media (min-width: 768px) {
+  .about-avatar-wrapper {
+    width: 350px;
+    height: 350px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .about-avatar-wrapper {
+    width: 380px;
+    height: 380px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-avatar-wrapper {
+    width: 250px;
+    height: 250px;
+    border-width: 6px;
+  }
 }
