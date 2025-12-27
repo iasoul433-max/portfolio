@@ -346,7 +346,7 @@ body {
 
 @media (min-width: 1024px) {
   .project-slide {
-    min-width: 400px; /* Plus large sur desktop */
+    min-width: 460px; /* Plus large sur desktop */
     max-width: 400px;
   }
 }
@@ -746,5 +746,284 @@ body {
     width: 250px;
     height: 250px;
     border-width: 6px;
+  }
+}
+/* ===== SECTION CONTACT MODERNE ===== */
+
+/* Animation d'entrée */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-up {
+  animation: fadeUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  opacity: 0;
+}
+
+/* Wrapper des cartes */
+.contact-card-wrapper {
+  perspective: 1000px;
+}
+
+/* Carte de contact */
+.contact-card {
+  display: block;
+  height: 100%;
+  background: linear-gradient(145deg, 
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(255, 255, 255, 0.85) 100%);
+  border: 1px solid rgba(59, 130, 246, 0.1);
+  border-radius: 20px;
+  padding: 24px;
+  backdrop-filter: blur(10px);
+  box-shadow: 
+    0 8px 32px rgba(59, 130, 246, 0.08),
+    0 4px 12px rgba(0, 0, 0, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.dark .contact-card {
+  background: linear-gradient(145deg, 
+    rgba(30, 41, 59, 0.8) 0%,
+    rgba(15, 23, 42, 0.6) 100%);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.2),
+    0 4px 12px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Effet de bordure lumineuse */
+.contact-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  padding: 1px;
+  background: linear-gradient(135deg, 
+    rgba(59, 130, 246, 0.2), 
+    rgba(96, 165, 250, 0.2), 
+    rgba(59, 130, 246, 0.2));
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.contact-card:hover::before {
+  opacity: 1;
+}
+
+/* Intérieur de la carte */
+.contact-card-inner {
+  position: relative;
+  z-index: 2;
+}
+
+/* Wrapper d'icône */
+.contact-icon-wrapper {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Fond d'icône */
+.contact-icon-bg {
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  opacity: 0.2;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.contact-card:hover .contact-icon-bg {
+  transform: scale(1.1);
+  opacity: 0.3;
+}
+
+/* Icône COLORÉE ET CLAIRE */
+.contact-icon {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  z-index: 2;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Couleurs spécifiques pour chaque icône */
+.contact-card:nth-child(1) .contact-icon { color: #2563eb; } /* Email - Bleu */
+.contact-card:nth-child(2) .contact-icon { color: #0a66c2; } /* LinkedIn - Bleu LinkedIn */
+.contact-card:nth-child(3) .contact-icon { color: #333; } /* GitHub - Noir */
+.contact-card:nth-child(4) .contact-icon { color: #25d366; } /* WhatsApp - Vert WhatsApp */
+
+.dark .contact-card:nth-child(1) .contact-icon { color: #60a5fa; }
+.dark .contact-card:nth-child(2) .contact-icon { color: #3b82f6; }
+.dark .contact-card:nth-child(3) .contact-icon { color: #f3f4f6; }
+.dark .contact-card:nth-child(4) .contact-icon { color: #34d399; }
+
+.contact-card:hover .contact-icon {
+  transform: scale(1.15);
+}
+
+/* Titre */
+.contact-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 4px;
+  transition: color 0.3s ease;
+}
+
+.dark .contact-title {
+  color: #f9fafb;
+}
+
+/* Détail */
+.contact-detail {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-bottom: 16px;
+  transition: color 0.3s ease;
+}
+
+.dark .contact-detail {
+  color: #d1d5db;
+}
+
+/* Effet au survol */
+.contact-hover-effect {
+  display: inline-flex;
+  align-items: center;
+  color: #3b82f6;
+  font-size: 0.875rem;
+  font-weight: 500;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dark .contact-hover-effect {
+  color: #60a5fa;
+}
+
+.contact-card:hover .contact-hover-effect {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Animation de la carte au survol */
+.contact-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 
+    0 20px 40px rgba(59, 130, 246, 0.15),
+    0 12px 24px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.dark .contact-card:hover {
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.3),
+    0 12px 24px rgba(59, 130, 246, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+/* Carte en verre (stats) */
+.glass-card {
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(255, 255, 255, 0.7) 100%);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(59, 130, 246, 0.1);
+  border-radius: 18px;
+  padding: 28px;
+  box-shadow: 
+    0 8px 32px rgba(59, 130, 246, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.dark .glass-card {
+  background: linear-gradient(135deg, 
+    rgba(30, 41, 59, 0.7) 0%,
+    rgba(15, 23, 42, 0.5) 100%);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Stats - TEXTE BLEU */
+.stat-number {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.stat-label {
+  font-size: 0.875rem;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.dark .stat-label {
+  color: #9ca3af;
+}
+
+/* Animation d'apparition des cartes */
+.contact-card-wrapper:nth-child(1) .contact-card { animation-delay: 0.1s; }
+.contact-card-wrapper:nth-child(2) .contact-card { animation-delay: 0.2s; }
+.contact-card-wrapper:nth-child(3) .contact-card { animation-delay: 0.3s; }
+.contact-card-wrapper:nth-child(4) .contact-card { animation-delay: 0.4s; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contact-card {
+    padding: 20px;
+  }
+  
+  .contact-icon-wrapper {
+    width: 56px;
+    height: 56px;
+    margin-bottom: 16px;
+  }
+  
+  .contact-icon {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .glass-card {
+    padding: 24px;
+  }
+  
+  .stat-number {
+    font-size: 1.75rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .grid.grid-cols-1.md\\:grid-cols-2.lg\\:grid-cols-4 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  
+  .contact-card {
+    padding: 16px;
   }
 }
