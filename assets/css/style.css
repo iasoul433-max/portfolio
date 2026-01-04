@@ -331,37 +331,37 @@ body {
 
 /* Slide de projet - TAILLE FIXE POUR TOUS */
 .project-slide {
-  min-width: 300px; /* TAILLE FIXE pour toutes les cartes */
-  max-width: 300px; /* TAILLE FIXE pour toutes les cartes */
+  min-width: 300px;
+  max-width: 300px;
   flex-shrink: 0;
   padding: 0.5rem;
 }
 
 @media (min-width: 640px) {
   .project-slide {
-    min-width: 350px; /* Un peu plus large sur tablette */
+    min-width: 350px;
     max-width: 350px;
   }
 }
 
 @media (min-width: 1024px) {
   .project-slide {
-    min-width: 460px; /* Plus large sur desktop */
+    min-width: 400px;
     max-width: 400px;
   }
 }
 
-/* Carte de projet compacte - HAUTEUR FIXE */
+/* Carte de projet compacte */
 .project-card-compact {
   background: white;
   border-radius: 16px;
   box-shadow: 0 6px 20px rgba(0,0,0,0.05);
   transition: all 0.3s ease;
-  height: 480px; /* HAUTEUR FIXE pour toutes les cartes */
+  height: 480px; /* Hauteur réduite */
   display: flex;
   flex-direction: column;
-  width: 100%; /* Prend toute la largeur du .project-slide */
-  overflow: hidden; /* Empêche tout débordement */
+  width: 100%;
+  overflow: hidden;
 }
 
 .dark .project-card-compact {
@@ -373,92 +373,100 @@ body {
   box-shadow: 0 12px 24px rgba(0,0,0,0.1);
 }
 
-/* Image projet compact - DIMENSIONS FIXES */
+/* Image projet compact */
 .project-image-compact {
   width: 100%;
-  height: 200px; /* HAUTEUR FIXE pour toutes les images */
+  height: 180px; /* Hauteur réduite */
   overflow: hidden;
   background: #f3f4f6;
-  flex-shrink: 0; /* Empêche la réduction */
+  flex-shrink: 0;
 }
 
 .dark .project-image-compact {
   background: #374151;
 }
 
-/* CONTROLE TOTAL DES IMAGES */
 .project-image-compact img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* L'image remplit le conteneur sans déformer */
-  object-position: center; /* Centre l'image */
+  object-fit: cover;
+  object-position: center;
   transition: transform 0.5s ease;
-  display: block; /* Élimine l'espace blanc sous l'image */
+  display: block;
 }
 
 .project-card-compact:hover .project-image-compact img {
   transform: scale(1.05);
 }
 
-/* Contenu de la carte - prend l'espace restant */
+/* Contenu de la carte */
 .project-card-compact .card-front > div:not(.project-image-compact) {
-  flex: 1; /* Prend tout l'espace disponible après l'image */
   display: flex;
   flex-direction: column;
-  padding: 1.25rem; /* p-5 */
+  padding: 1.25rem;
+  height: calc(100% - 180px); /* Hauteur restante après l'image */
 }
 
-/* Assurer que le contenu texte est bien contenu */
+/* Titre - sans marge excessive */
 .project-card-compact h3 {
-  font-size: 1.25rem; /* text-xl */
+  font-size: 1.25rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
   line-height: 1.3;
-  display: -webkit-box;
-  -webkit-line-clamp: 2; /* Limite à 2 lignes */
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+  display: block;
 }
 
-.project-card-compact p {
-  font-size: 0.875rem; /* text-sm */
-  color: #6b7280; /* text-gray-600 */
-  margin-bottom: 0.75rem;
+/* Description - espacement réduit */
+.project-card-compact .card-front > div:not(.project-image-compact) p {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-bottom: 1rem; /* Réduit de 0.75rem à 1rem */
   line-height: 1.5;
-  flex: 1; /* Prend l'espace disponible */
+  flex-grow: 0; /* NE PAS prendre tout l'espace */
+  max-height: 3.5em; /* Environ 3 lignes */
   overflow: hidden;
+  text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 3; /* Limite à 3 lignes */
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
 }
 
 .dark .project-card-compact p {
-  color: #d1d5db; /* text-gray-300 */
+  color: #d1d5db;
 }
 
-/* Conteneur pour les tags - fixe en bas */
+/* Conteneur pour les tags - juste après la description */
 .project-card-compact .flex-wrap {
-  margin-top: auto; /* Pousse vers le bas */
   margin-bottom: 1rem;
+  flex-shrink: 0; /* Ne pas rétrécir */
 }
 
-/* Boutons en bas de carte */
+/* Conteneur des boutons - collé en bas */
 .project-card-compact > div:last-child {
-  margin-top: auto; /* S'assure que c'est en bas */
+  margin-top: auto;
+  padding-top: 0.5rem;
+  border-top: 1px solid #f3f4f6;
+}
+
+.dark .project-card-compact > div:last-child {
+  border-top-color: #374151;
 }
 
 /* Boutons projets compacts */
 .btn-code-compact,
-.btn-demo-compact {
+.btn-demo-compact,
+.btn-detail {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 6px;
   padding: 6px 12px;
   border-radius: 999px;
   font-size: 12px;
   font-weight: 500;
   transition: all 0.25s ease;
-  flex-shrink: 0; /* Empêche la réduction */
+  flex-shrink: 0;
+  min-height: 32px;
 }
 
 /* Code */
@@ -498,10 +506,191 @@ body {
   background: #1e40af;
 }
 
-/* Version back (détails) - même hauteur */
+/* Détail */
+.btn-detail {
+  background: #3b82f6;
+  color: white;
+  border: none;
+}
+
+.btn-detail:hover {
+  background: #2563eb;
+}
+
+/* Version back (détails) */
 .project-card-compact .card-back {
-  height: 480px; /* Même hauteur que le front */
-  overflow-y: auto; /* Scroll si contenu trop long */
+  height: 480px;
+  overflow-y: auto;
+  padding: 1.25rem;
+  background: white;
+  border-radius: 16px;
+}
+
+.dark .project-card-compact .card-back {
+  background: #1f2937;
+}
+
+/* Amélioration du scroll */
+.project-card-compact .card-back::-webkit-scrollbar {
+  width: 6px;
+}
+
+.project-card-compact .card-back::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.dark .project-card-compact .card-back::-webkit-scrollbar-track {
+  background: #374151;
+}
+
+.project-card-compact .card-back::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 10px;
+}
+
+.dark .project-card-compact .card-back::-webkit-scrollbar-thumb {
+  background: #4b5563;
+}
+
+.project-card-compact .card-back::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Flèches projets */
+#prev-project, #next-project {
+  background: white;
+  border: none;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #4b5563;
+}
+
+.dark #prev-project, .dark #next-project {
+  background: #374151;
+  color: #d1d5db;
+}
+
+#prev-project:hover, #next-project:hover {
+  background: #f3f4f6;
+  transform: scale(1.1);
+  color: #2563eb;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.dark #prev-project:hover, .dark #next-project:hover {
+  background: #4b5563;
+  color: #60a5fa;
+}
+
+/* Pagination dots */
+.pagination-dot {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.pagination-dot.active {
+  background-color: #3b82f6 !important;
+  transform: scale(1.2);
+}
+
+.pagination-dot:hover {
+  transform: scale(1.2);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .project-slide {
+    min-width: 280px;
+    max-width: 280px;
+  }
+  
+  .project-card-compact {
+    height: 460px;
+  }
+  
+  .project-image-compact {
+    height: 150px;
+  }
+  
+  .project-card-compact .card-front > div:not(.project-image-compact) {
+    height: calc(100% - 150px);
+    padding: 1rem;
+  }
+  
+  .project-card-compact h3 {
+    font-size: 1.125rem;
+  }
+  
+  .project-card-compact .card-front > div:not(.project-image-compact) p {
+    font-size: 0.8125rem;
+    margin-bottom: 0.75rem;
+    -webkit-line-clamp: 2; /* 2 lignes sur mobile */
+    max-height: 2.5em;
+  }
+  
+  .project-card-compact .card-back {
+    height: 460px;
+    padding: 1rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .project-image-compact {
+    height: 180px;
+  }
+  
+  .project-card-compact .card-front > div:not(.project-image-compact) {
+    height: calc(100% - 180px);
+  }
+}
+
+@media (min-width: 1024px) {
+  .project-image-compact {
+    height: 200px;
+  }
+  
+  .project-card-compact .card-front > div:not(.project-image-compact) {
+    height: calc(100% - 200px);
+  }
+}
+
+/* Améliorations pour mobile */
+@media (max-width: 767px) {
+  section {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  #theme-toggle {
+    top: 5.5rem;
+    right: 1rem;
+    padding: 0.75rem;
+  }
+  
+  #prev-project, #next-project {
+    width: 2rem;
+    height: 2rem;
+    font-size: 0.8rem;
+  }
+  
+  #prev-project {
+    left: 0.5rem;
+  }
+  
+  #next-project {
+    right: 0.5rem;
+  }
 }
 
 /* Flèches projets */
@@ -563,27 +752,36 @@ body {
   }
   
   .project-card-compact {
-    height: 460px; /* Un peu moins haut sur mobile */
+    height: 480px; /* Un peu moins haut sur mobile */
   }
   
   .project-image-compact {
-    height: 180px;
+    height: 160px; /* Plus petit sur mobile */
   }
   
   .project-card-compact .card-back {
-    height: 460px;
+    height: 480px;
+    padding: 1rem; /* Moins de padding sur mobile */
+  }
+  
+  .project-card-compact h3 {
+    font-size: 1.125rem; /* Un peu plus petit */
+  }
+  
+  .project-card-compact p {
+    font-size: 0.8125rem; /* Un peu plus petit */
   }
 }
 
 @media (min-width: 768px) {
   .project-image-compact {
-    height: 200px;
+    height: 180px;
   }
 }
 
 @media (min-width: 1024px) {
   .project-image-compact {
-    height: 220px;
+    height: 200px;
   }
 }
 
